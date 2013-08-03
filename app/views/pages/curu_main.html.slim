@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link rel="shortcut icon" href=image_path('curu/favicon.png') type="image/png"
+    =stylesheet_link_tag 'curu_main'
+  body
+    #root
+      #header
+        #content_main
+          =image_tag('curu/images_curu/01.png', width: 18)
+          =link_to image_tag('curu/images_curu/02.png', width: 161), pages_curu_history_topics_path
+          =image_tag('curu/images_curu/03.png', width: 359)
+          =link_to image_tag('curu/images_curu/04.png', width: 165), pages_curu_lesson_path
+          =image_tag('curu/images_curu/05.png', width: 20)
+          br
+          =image_tag('curu/images_curu/06.png', width: 179)
+          =image_tag('curu/images_curu/07.png', width: 359)
+          =image_tag('curu/images_curu/08.png', width: 185)
+          br
+          =image_tag('curu/images_curu/09.png', width: 18)
+          =link_to image_tag('curu/images_curu/10.png', width: 161), pages_curu_magic_topics_path
+          =image_tag('curu/images_curu/11.png', width: 359)
+          =link_to image_tag('curu/images_curu/12.png', width: 165), pages_curu_differents_path
+          =image_tag('curu/images_curu/13.png', width: 20)
+      #root_footer
+    #footer
+      #made_by
+        |Программное обеспечение Григорьев О.
+        br
+        |Вёрстка Григорьева Ю.
+        br
+        |Дизайн Фанина А.
+      #copyright
+        a.vk href='http://vk.com/club119497'
+          =image_tag('curu/vk.png', height: 30)
