@@ -8,21 +8,11 @@ html
     #root
       #header
         #content_main
-          =image_tag('curu/images_curu/01.png', width: 18)
-          =link_to image_tag('curu/images_curu/02.png', width: 161), pages_curu_history_topics_path
-          =image_tag('curu/images_curu/03.png', width: 359)
-          =link_to image_tag('curu/images_curu/04.png', width: 165), pages_curu_lesson_path
-          =image_tag('curu/images_curu/05.png', width: 20)
-          br
-          =image_tag('curu/images_curu/06.png', width: 179)
-          =image_tag('curu/images_curu/07.png', width: 359)
-          =image_tag('curu/images_curu/08.png', width: 185)
-          br
-          =image_tag('curu/images_curu/09.png', width: 18)
-          =link_to image_tag('curu/images_curu/10.png', width: 161), pages_curu_magic_topics_path
-          =image_tag('curu/images_curu/11.png', width: 359)
-          =link_to image_tag('curu/images_curu/12.png', width: 165), pages_curu_differents_path
-          =image_tag('curu/images_curu/13.png', width: 20)
+          =image_tag('curu/main-menu.png', height: 400)
+        = link_to '', pages_curu_history_topics_path, id: :history_main
+        = link_to '', pages_curu_magic_topics_path, id: :magic_main
+        = link_to '', pages_curu_lesson_path, id: :lesson_main
+        = link_to '', pages_curu_history_topics_path, id: :topic_main
       #root_footer
     #footer
       #made_by
@@ -32,5 +22,5 @@ html
         br
         |Дизайн Фанина А.
       #copyright
-        a.vk href='http://vk.com/club119497'
+        a.vk    href='http://vk.com/club119497'
           =image_tag('curu/vk.png', height: 30)

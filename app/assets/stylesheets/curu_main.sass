@@ -1,5 +1,6 @@
 @import "compass/reset"
 @import "compass/layout"
+@import compass
 
 +sticky-footer(63px)
 
@@ -19,8 +20,32 @@ body
       top: 180px
     text-align: center
 
-  //#content_main
-  //  padding-left: 25%
+    #content_main
+      margin-top: -30px
+
+  #lesson_main,  #history_main, #magic_main, #topic_main
+    //background-color: blue
+    position: absolute
+    width: 169px
+    height: 131px
+    display: block
+
+  #history_main
+    top: 158px
+    left: 322px
+
+
+  #magic_main
+    left: 322px
+    top: 409px
+
+  #lesson_main
+    left: 874px
+    top: 158px
+
+  #topic_main
+    top: 409px
+    left: 874px
 
   #footer
     font-size: 55%
@@ -28,7 +53,7 @@ body
     font-weight: bold
     padding-top: 20px
     padding-bottom: 2px
-    box-sizing: border-box
+    +box-sizing(border-box)
     background: repeat-x image-url('curu/footer.png')
 
   #copyright, #made_by
