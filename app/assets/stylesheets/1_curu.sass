@@ -7,6 +7,9 @@ body
   background: no-repeat image-url('curu/lines.png')
   a
     text-decoration: none
+    &:visited
+      color: black
+
 
 
   #main_wrap
@@ -15,43 +18,48 @@ body
 
 
 
+
   #menu
+    a
+      color: black
+      font-size: 170%
+      font-family: Arial
+      font-weight: bold
     display: inline-block
     margin:
-      top: 60px
+      top: 25px
 
+  #home, #history, #lessons, #topic, #magic
+    margin-right: 20px
 
-  #history,  #lessons, #topic, #magic
-    display: inline-block
-    height: 30px
-
-  #lessons, #topic, #magic
-    margin-left: 50px
-
+  #home
+    &:hover
+      border-bottom: solid 3px #2e8466
+    &:active
+      border-bottom: solid 3px #2e8466
   #history
-    width: 196px
-    background: no-repeat image-url('curu/history.png')
-    &:hover, &.active
-      background: no-repeat image-url('curu/active_history.png')
-
-
+    &:hover
+      border-bottom: solid 3px #b50000
+    &:active
+      border-bottom: solid 3px #b50000
   #lessons
-    width: 137px
-    background: no-repeat image-url('curu/lessons.png')
-    &:hover, &.active
-      background: no-repeat image-url('curu/active_lessons.png')
+    &:hover
+      border-bottom: solid 3px #003948
+    &:active
+      border-bottom: solid 3px #003948
 
   #topic
-    width: 183px
-    background: no-repeat image-url('curu/topic.png')
-    &:hover, &.active
-      background: no-repeat image-url('curu/active_topic.png')
+    &:hover
+      border-bottom: solid 3px #ff5800
+    &:active
+      border-bottom: solid 3px #ff5800
 
   #magic
-    width: 281px
-    background: no-repeat image-url('curu/magic.png')
-    &:hover, &.active
-      background: no-repeat image-url('curu/active_magic.png')
+    &:hover
+      border-bottom: solid 3px #2e8466
+      &:active
+        border-bottom: solid 3px #2e8466
+
 
   #content
     margin: 0 auto
@@ -59,6 +67,7 @@ body
     font-family: Times New Roman
     line-height: 1.6
     padding: 10px
+    margin-left: 100px
     font-size: 150%
     text-align: center
     margin-top: 100px

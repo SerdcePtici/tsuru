@@ -8,10 +8,10 @@ html
     #root
       #main_wrap
         #menu
-          a#history       href='http://google.com'
-          a#lessons       href='http://google.com'
-          a#topic         href='http://google.com'
-          a#magic         href='http://google.com'
+          = link_to 'ИСТОРИЯ', pages_curu_history_topics_path, id: :history
+          = link_to 'УРОКИ', pages_curu_albums_path, id: :lessons
+          = link_to 'ПО ТЕМЕ', pages_curu_differents_path, id: :topic
+          = link_to 'ВОЛШЕБСТВО', pages_curu_magic_topics_path, id: :magic
         #content
       #root_footer
     #footer

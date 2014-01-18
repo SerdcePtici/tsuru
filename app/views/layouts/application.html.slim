@@ -9,10 +9,11 @@ html
     #root
       #main_wrap
         #menu
-          =link_to '', pages_curu_history_topics_path, id: :history
-          =link_to '', pages_curu_history_topics_path, id: :lessons
-          =link_to '', pages_curu_history_topics_path, id: :topic
-          =link_to '', pages_curu_history_topics_path, id: :magic
+          = link_to 'НА ГЛАВНУЮ', pages_curu_main_path, id: :home
+          = link_to 'ИСТОРИЯ', pages_curu_history_topics_path, id: :history
+          = link_to 'УРОКИ', pages_curu_albums_path, id: :lessons
+          = link_to 'ПО ТЕМЕ', pages_curu_differents_path, id: :topic
+          = link_to 'ВОЛШЕБСТВО', pages_curu_magic_topics_path, id: :magic
         #content
           = yield
       #root_footer
