@@ -1,10 +1,10 @@
 #about_magic_story
   |Тут живут ваши истории, в которых журавлики принимали непосредственное участие, или, может быть, даже творили настоящие чудеса!..
 br
-a.topic_link Я журавлик - ты журавлик!
+= link_to 'Я журавлик - ты журавлик!', pages_curu_story_path, class: :topic_link
 br
 a.topic_link Наша первая встреча или Цуру, привет!
 br
 a.topic_link Журавлиная свадьба
 #add
-  a.add Рассказать историю...
+  = link_to 'Рассказать историю...', pages_curu_tell_magic_story_path, class: :add
