@@ -4,7 +4,9 @@ html
     meta(charset="utf-8")
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
+    link rel="shortcut icon" href=image_path('curu/favicon.png') type="image/png"
     = csrf_meta_tags
+    title = @title || 'ЦУРУ'
   body class=([controller.controller_name, controller.action_name])
     #root
       #main_wrap
