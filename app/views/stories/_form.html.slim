@@ -9,7 +9,7 @@
     = f.input :title, label: 'Название:'
   .field
     = f.input :text, label: 'Ваша история:'
-  = f.input :magic, as: :hidden, value: params[:magic]
+  = f.input_field :magic, as: :hidden, value: params[:magic] || false
   .actions
     input type="button" value="Добавить изображение"
     = f.submit 'Отправить'

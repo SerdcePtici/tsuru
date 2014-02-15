@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   inherit_resources
 
   def index
-    @stories = Story.where(magic: (params[:magic] == 'true') )
+    @stories = Story.where magic: (params[:magic] == 'true')
     respond_with @stories do |format|
       format.html { render :index_magic if params[:magic] }
     end
