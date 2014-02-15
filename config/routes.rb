@@ -1,5 +1,7 @@
 Tsuru::Application.routes.draw do
 
+  resources :stories
+
   root 'pages#curu_main'
 
   get 'pages/curu_main'
