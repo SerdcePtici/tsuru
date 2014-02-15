@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215144513) do
+ActiveRecord::Schema.define(version: 20140215163517) do
 
   create_table "stories", force: true do |t|
     t.string   "author"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140215144513) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "magic",      default: false
   end
 
 end

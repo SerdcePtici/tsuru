@@ -15,7 +15,7 @@ html
           = link_to 'ИСТОРИЯ', stories_path, id: :history
           = link_to 'УРОКИ', pages_curu_albums_path, id: :lessons
           = link_to 'ПО ТЕМЕ', pages_curu_differents_path, id: :topic
-          = link_to 'ВОЛШЕБСТВО', pages_curu_magic_topics_path, id: :magic
+          = link_to 'ВОЛШЕБСТВО', stories_path(magic: true), id: :magic
         #content
           = yield
       #root_footer

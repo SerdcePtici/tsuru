@@ -11,7 +11,7 @@ html
         #main_menu
           =image_tag('curu/main-menu.png', height: 370)
           = link_to '', stories_path, id: :history_main
-          = link_to '', pages_curu_magic_topics_path, id: :magic_main
+          = link_to '', stories_path(magic: true), id: :magic_main
           = link_to '', pages_curu_albums_path, id: :lesson_main
           = link_to '', pages_curu_differents_path, id: :topic_main
       #root_footer
