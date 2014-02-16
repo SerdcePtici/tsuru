@@ -1,7 +1,5 @@
 = simple_form_for @story do |f|
-  - if @story.errors.any?
-    #error_explanation
-      h2 Исправьте ошибки ниже
+  = f.error_notification
 
   .field
     = f.input :author, label: 'Рассказчик:'

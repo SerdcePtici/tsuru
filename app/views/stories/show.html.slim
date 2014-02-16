@@ -4,6 +4,9 @@ br
 =image_tag('curu/foto.jpg', height: 400)
 br
 =image_tag('curu/foto.jpg', height: 400)
+
+= render partial: 'comments/form'
+
 #comment
   #table
     |Имя гостя:
@@ -26,8 +29,4 @@ br
     br
     input type="button" value="Отправить"
 
-  #your_comment
-    #comment_name
-    |08.08.2008 Имя гостя
-    #comment_content
-    |Я фанфат журавликов!!!! Журавлики рулят!!!! Ура!!!!
+  = render @story.comments

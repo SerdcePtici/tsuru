@@ -1,6 +1,8 @@
 Tsuru::Application.routes.draw do
 
-  resources :stories
+  resources :stories do
+    resources :comments, only: :create
+  end
 
   root 'pages#curu_main'
 

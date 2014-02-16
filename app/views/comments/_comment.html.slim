@@ -1,0 +1,6 @@
+- if comment.id
+  #your_comment
+    #comment_name
+      | #{l comment.created_at, format: :long} #{comment.author}
+    #comment_content
+      = comment.comment
