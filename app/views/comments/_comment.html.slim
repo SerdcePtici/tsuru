@@ -1,4 +1,4 @@
-- if comment.id
+- if comment.persisted?
   #your_comment
     #comment_name
       | #{l comment.created_at, format: :long} #{comment.author}
