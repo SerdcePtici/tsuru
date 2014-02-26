@@ -7,26 +7,5 @@ br
 
 = render partial: 'comments/form'
 
-#comment
-  #table
-    |Имя гостя:
-    br
-    |Комментарий:
-  #area
-    input type="text"
-    br
-    textarea size="500"
-  #attention_comment
-    |Дорогие посетители!
-    br
-    |Комментарии, содержащие мат, пошлость или рекламу, будут удалены!!!
-    br
-    |с уважением,
-    br
-    |адиминистрация сайта
-  #inputs
-    input type="button" value="Добавить изображение"
-    br
-    input type="button" value="Отправить"
 
-  = render @story.comments
+= render @story.comments

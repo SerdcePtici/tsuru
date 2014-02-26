@@ -1,19 +1,21 @@
-= simple_form_for([@story, @story.comments.build]) do |f|
+= simple_form_for [@story, @story.comments.build], html: { class: "comment" } do |f|
   = f.error_notification
 
   .form-inputs
+  #comment_table
     = f.input :author, label: 'Имя гостя:'
     = f.input :comment, label: 'Комментарий:'
 
   #attention_comment
-  |Дорогие посетители!
-  br
-  |Комментарии, содержащие мат, пошлость или рекламу, будут удалены!!!
-  br
-  |с уважением,
-  br
-  |адиминистрация сайта
-  .form-actions
-    input type="button" value="Добавить изображение"
-      br
-    = f.button :submit, 'Отправить'
+    |Дорогие посетители!
+    br
+    |Комментарии, содержащие мат, пошлость или рекламу, будут удалены!!!
+    br
+    |с уважением,
+    br
+    |адиминистрация сайта
+  #buttons
+    .form-actions
+      input type="button" value="Добавить изображение"
+        br
+      = f.button :submit, 'Отправить'
