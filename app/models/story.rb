@@ -7,6 +7,6 @@ class Story < ActiveRecord::Base
   has_many :pictures, -> { order('position ASC') }, as: :picturable
   accepts_nested_attributes_for :pictures, reject_if: :all_blank
 
-  validates :pictures, length: { maximum: 2 }
+  validates :pictures, length: { maximum: MAX_PICTURES_COUNT }
 
 end
