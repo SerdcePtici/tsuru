@@ -10,12 +10,12 @@ class StoriesController < ApplicationController
 
   def new
     @story = Story.new
-    2.times { @story.pictures.build }
+    Story::MAX_PICTURES_COUNT.times { @story.pictures.build }
   end
 
   def create
     @story = Story.new permitted_params
-    missing_pictures_num = 2 - @story.pictures.count
+    missing_pictures_num = Story::MAX_PICTURES_COUNT - @story.pictures.count
     missing_pictures_num.times { @story.pictures.build }
     create!
   end
