@@ -8,9 +8,21 @@ class StoriesController < ApplicationController
     end
   end
 
+  def new
+    @story = Story.new
+    2.times { @story.pictures.build }
+  end
+
+  def create
+    @story = Story.new permitted_params
+    missing_pictures_num = 2 - @story.pictures.count
+    missing_pictures_num.times { @story.pictures.build }
+    create!
+  end
+
   private
 
   def permitted_params
-    params.permit(story: [:author, :title, :magic, :text])
+    params.require(:story).permit(:author, :title, :magic, :text, pictures_attributes: [:file, :file_cache])
   end
 end

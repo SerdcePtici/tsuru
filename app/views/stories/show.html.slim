@@ -1,11 +1,10 @@
 = @story.title
 = simple_format @story.text
 br
-=image_tag('curu/foto.jpg', height: 400)
-br
-=image_tag('curu/foto.jpg', height: 400)
+- @story.pictures.each do |picture|
+  = image_tag picture, height: 400
+  br
 
 = render partial: 'comments/form'
-
 
 = render @story.comments
