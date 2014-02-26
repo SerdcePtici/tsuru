@@ -1,4 +1,6 @@
 = @story.title
+br
+| Рассказчик: #{@story.author}
 = simple_format @story.text
 br
 - @story.pictures.each do |picture|
