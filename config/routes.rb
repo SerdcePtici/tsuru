@@ -1,10 +1,12 @@
 Tsuru::Application.routes.draw do
 
+  root 'pages#curu_main'
+
+  devise_for :admin
+
   resources :stories do
     resources :comments, only: :create
   end
-
-  root 'pages#curu_main'
 
   get 'pages/curu_main'
   get 'pages/curu_story'
