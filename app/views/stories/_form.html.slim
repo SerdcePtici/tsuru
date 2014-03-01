@@ -21,13 +21,11 @@
     |с уважением,
     br
     |адиминистрация сайта
-  #buttons
+  #buttons_story
     = f.simple_fields_for :pictures do |pf|
       = image_tag(pf.object, height: 400) if pf.object.file?
       = pf.input_field :file, as: :file
       = pf.hidden_field :file_cache
       br
     .actions
-      input type="button" value="Добавить изображение"
-      br
       = f.submit 'Отправить'
