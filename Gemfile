@@ -20,6 +20,10 @@ gem 'simple_form'
 # Lists
 gem 'acts_as_list'
 
+# Authentication
+gem 'devise'
+
+
 # Uploads
 gem 'carrierwave'
 
