@@ -1,15 +1,15 @@
 class StoriesController < ApplicationController
   inherit_resources
+  load_and_authorize_resource
 
   def index
-    @stories = Story.where magic: (params[:magic] == 'true')
+    @stories = @stories.where magic: (params[:magic] == 'true')
     respond_with @stories do |format|
       format.html { render :index_magic if params[:magic] }
     end
   end
 
   def new
-    @story = Story.new
     Story::MAX_PICTURES_COUNT.times { @story.pictures.build }
   end
 

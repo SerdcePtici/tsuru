@@ -2,6 +2,8 @@
 br
 | Рассказчик: #{@story.author}
 = simple_format @story.text
+- if can? :destroy, @story
+  = button_to 'Удалить', @story, method: :delete, confirm: 'Подтвердите удаление'
 br
 - @story.pictures.each do |picture|
   = image_tag picture, height: 400

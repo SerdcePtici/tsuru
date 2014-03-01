@@ -4,6 +4,8 @@ Tsuru::Application.routes.draw do
 
   devise_for :admin
 
+  resources :comments, only: :destroy
+
   resources :stories do
     resources :comments, only: :create
   end
