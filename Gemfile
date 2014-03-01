@@ -23,6 +23,9 @@ gem 'acts_as_list'
 # Authentication
 gem 'devise'
 
+# Authorization
+gem 'cancan'
+
 
 # Uploads
 gem 'carrierwave'

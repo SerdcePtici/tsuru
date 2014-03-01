@@ -1,6 +1,7 @@
 - if comment.persisted?
-  #your_comment
-    #comment_name
+  .comment id="comment-#{comment.id}"
+    = button_to 'Удалить', comment, method: :delete, remote: true, confirm: 'Удалить комментарий?'
+    .comment_name
       | #{l comment.created_at, format: :long} #{comment.author}
-    #comment_content
+    .comment_content
       = comment.comment
