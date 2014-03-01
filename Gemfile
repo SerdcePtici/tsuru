@@ -14,8 +14,14 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'compass-rails',  '~> 1.1.3'
 gem 'slim-rails'
 
-#forms
+# Forms
 gem 'simple_form'
+
+# Lists
+gem 'acts_as_list'
+
+# Uploads
+gem 'carrierwave'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
