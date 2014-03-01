@@ -2,13 +2,14 @@ doctype html
 html
   head
     meta(charset="utf-8")
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
     link rel="shortcut icon" href=image_path('curu/favicon.png') type="image/png"
     = csrf_meta_tags
     title = @title || 'ЦУРУ'
   body class=([controller.controller_name, controller.action_name])
     #root
+      = render 'devise/logout'
       #main_wrap
         #menu
           = link_to 'НА ГЛАВНУЮ', pages_curu_main_path, id: :home

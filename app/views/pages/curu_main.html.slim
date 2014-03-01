@@ -2,11 +2,14 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    = stylesheet_link_tag 'curu_main'
+    = javascript_include_tag 'application'
     link rel="shortcut icon" href=image_path('curu/favicon.png') type="image/png"
-    =stylesheet_link_tag 'curu_main'
+    = csrf_meta_tags
     title ЦУРУ
   body
     #root
+      = render 'devise/logout'
       #header
         #main_wrap
           #main_menu
