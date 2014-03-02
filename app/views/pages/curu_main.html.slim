@@ -1,31 +1,8 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
-    link rel="shortcut icon" href=image_path('curu/favicon.png') type="image/png"
-    = csrf_meta_tags
-    title ЦУРУ
-  body
-    #root
-      = render 'devise/logout'
-      #header
-        #main_menu_wrap
-          #main_menu
-            =image_tag('curu/main-menu.png', height: 370)
-            = link_to '', stories_path, id: :history_main
-            = link_to '', stories_path(magic: true), id: :magic_main
-            = link_to '', pages_curu_albums_path, id: :lesson_main
-            = link_to '', topics_path, id: :topic_main
-      #root_footer
-    #footer
-      #made_by
-        |Программное обеспечение Григорьев О.
-        br
-        |Вёрстка Григорьева Ю.
-        br
-        |Дизайн Фанина А.
-      #copyright
-        a.vk    href='http://vk.com/club119497'
-          =image_tag('curu/vk.png', height: 30)
+#header
+  #main_menu_wrap
+    #main_menu
+      =image_tag('curu/main-menu.png', height: 370)
+      = link_to '', stories_path, id: :history_main
+      = link_to '', stories_path(magic: true), id: :magic_main
+      = link_to '', pages_curu_albums_path, id: :lesson_main
+      = link_to '', topics_path, id: :topic_main
