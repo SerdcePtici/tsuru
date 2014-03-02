@@ -1,7 +1,7 @@
 button_name = '#scroll_to_top'
 
 $ ->
-  $(document).scroll->
+  $(document).scroll ->
     $button = $(button_name)
     if $(document).scrollTop()
       $button.show()
