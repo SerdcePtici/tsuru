@@ -1,6 +1,8 @@
 p
   strong Title:
   = @topic.title
+- if can? :destroy, @topic
+    = button_to 'Удалить', @topic, data: { confirm: 'Удалить раздел?'}, method: :delete
 
 = link_to 'Edit', edit_topic_path(@topic)
 '|
