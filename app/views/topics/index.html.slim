@@ -1,0 +1,14 @@
+- @title = 'РАЗНОСТИ'
+
+#about_differents
+  |Добавляем разности и красивости, относящиеся к нашим любимым журавликам (рисунки, фотосессии и т.д.)
+  br
+  |Особая просьба указывать авторов работ!
+- @topics.each do |topic|
+  br
+  = link_to topic.title, topic, class: :topic_link
+  - if can? :destroy, topic
+    = button_to 'Удалить', topic, data: { confirm: 'Удалить раздел?'}, method: :delete
+
+#add_topic
+  = link_to 'Добавить раздел...', new_topic_path, class: :add

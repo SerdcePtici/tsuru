@@ -1,5 +1,7 @@
 Tsuru::Application.routes.draw do
 
+  resources :topics
+
   root 'pages#curu_main'
 
   devise_for :admin

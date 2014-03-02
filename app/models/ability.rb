@@ -11,6 +11,7 @@ class Ability
          can :read, :all
          can :create, Story
          can :create, Comment
+         can :create, Topic
        end
     #
     # The first argument to `can` is the action you are giving the user 
