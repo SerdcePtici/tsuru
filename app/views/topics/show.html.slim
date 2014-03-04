@@ -2,7 +2,10 @@ p
   = @topic.title
 - if can? :destroy, @topic
     = button_to 'Удалить', @topic, data: { confirm: 'Удалить раздел?'}, method: :delete
+br
+| Альбомы:
+br
 - @topic.albums.each do |album|
   p = link_to album.title, album
 
-= link_to 'Новый альбом', new_topic_album_path(@topic)
+= link_to 'Создать альбом...', new_topic_album_path(@topic), class: 'diff_new_album'

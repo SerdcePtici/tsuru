@@ -1,9 +1,10 @@
-| Название раздела: #{parent.title}
-= simple_form_for [parent, @album] do |f|
-  = f.error_notification
+#diff_topic_name
+  | Раздел: #{parent.title}
+  = simple_form_for [parent, @album] do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :title
+    .form-inputs
+      = f.input :title, label: 'Название'
 
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.submit 'Создать альбом'
