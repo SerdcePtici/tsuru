@@ -5,7 +5,7 @@
     = base_errors @album
 
     .form-inputs
-      = f.input :title
+      = f.input :title, label: 'Название'
       = f.simple_fields_for :pictures do |pf|
         div
           = image_tag(pf.object, height: 400) if pf.object.file?
@@ -13,4 +13,4 @@
       = f.input :files, as: :file, input_html: { multiple: true }
 
   .form-actions
-    = f.button :submit
+    = f.submit 'Создать альбом'
