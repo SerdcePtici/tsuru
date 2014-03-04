@@ -1,15 +1,16 @@
-| Название раздела: #{parent.title}
-= simple_form_for [parent, @album] do |f|
-  = f.error_notification
-  = base_errors @album
+#diff_topic_name
+  | Раздел: #{parent.title}
+  = simple_form_for [parent, @album] do |f|
+    = f.error_notification
+    = base_errors @album
 
-  .form-inputs
-    = f.input :title
-    = f.simple_fields_for :pictures do |pf|
-      div
-        = image_tag(pf.object, height: 400) if pf.object.file?
-        = pf.hidden_field :file_cache
-    = f.input :files, as: :file, input_html: { multiple: true }
+    .form-inputs
+      = f.input :title
+      = f.simple_fields_for :pictures do |pf|
+        div
+          = image_tag(pf.object, height: 400) if pf.object.file?
+          = pf.hidden_field :file_cache
+      = f.input :files, as: :file, input_html: { multiple: true }
 
   .form-actions
     = f.button :submit
