@@ -10,7 +10,7 @@
         div
           = image_tag(pf.object, height: 400) if pf.object.file?
           = pf.hidden_field :file_cache
-      = f.input :files, as: :file, input_html: { multiple: true }
+      = f.input :files, as: :file, label: false, input_html: { multiple: true }
 
     .form-actions
       = f.submit 'Создать альбом'
