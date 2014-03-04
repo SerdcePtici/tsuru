@@ -1,0 +1,8 @@
+p
+  strong Topic:
+  = link_to @album.topic.title, @album.topic
+p
+  strong Title:
+  = @album.title
+- if can? :destroy, @album
+  = button_to 'Удалить', @album, method: :delete

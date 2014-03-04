@@ -1,6 +1,9 @@
 Tsuru::Application.routes.draw do
 
-  resources :topics
+
+  resources :topics do
+    resources :albums, shallow: true
+  end
 
   root 'pages#curu_main'
 

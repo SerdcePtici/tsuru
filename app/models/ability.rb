@@ -12,6 +12,7 @@ class Ability
          can :create, Story
          can :create, Comment
          can :create, Topic
+         can :create, Album
        end
     #
     # The first argument to `can` is the action you are giving the user 
