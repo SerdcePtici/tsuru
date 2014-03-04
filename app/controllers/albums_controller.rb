@@ -4,6 +4,6 @@ class AlbumsController < InheritedResources::Base
   actions :all, except: :index
 
   def permitted_params
-    params.permit(album: [:title])
+    params.permit(album: [:title, files: []])
   end
 end

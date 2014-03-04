@@ -4,6 +4,7 @@
 
   .form-inputs
     = f.input :title
+    = f.input :files, as: :file, input_html: { multiple: true }
 
   .form-actions
     = f.button :submit

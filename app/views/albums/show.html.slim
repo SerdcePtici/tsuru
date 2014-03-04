@@ -5,4 +5,6 @@ p
   strong Title:
   = @album.title
 - if can? :destroy, @album
-  = button_to 'Удалить', @album, method: :delete
+  = button_to 'Удалить', @album, data: { confirm: 'Удалить альбом?'}, method: :delete
+- @album.pictures.each do |picture|
+  = image_tag picture.file
