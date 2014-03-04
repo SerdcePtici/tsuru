@@ -3,6 +3,10 @@ class AlbumsController < InheritedResources::Base
   belongs_to :topic, shallow: true
   actions :all, except: :index
 
+  before_action do
+    @current_menu_item = :topic
+  end
+
   def permitted_params
     params.permit album: [:title, files: [], pictures_attributes: [:file_cache]]
   end

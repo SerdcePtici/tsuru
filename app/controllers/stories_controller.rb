@@ -2,6 +2,10 @@ class StoriesController < ApplicationController
   inherit_resources
   load_and_authorize_resource
 
+  before_action do
+    @current_menu_item = params[:magic] ? :magic : :history
+  end
+
   def index
     @stories = @stories.where magic: (params[:magic] == 'true')
     respond_with @stories do |format|
