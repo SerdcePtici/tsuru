@@ -1,9 +1,9 @@
+| Название раздела: #{parent.title}
 = simple_form_for [parent, @album] do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :title
-    = f.association :topic
 
   .form-actions
     = f.button :submit
