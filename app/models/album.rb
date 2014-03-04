@@ -1,15 +1,26 @@
 class Album < ActiveRecord::Base
   belongs_to :topic
   has_many :pictures, as: :picturable, dependent: :destroy
-
-  validates :title, presence: true
+  accepts_nested_attributes_for :pictures, reject_if: :all_blank
   attr_accessor :files
 
-  before_create :create_pictures
+  validate :should_have_pictures
+  validates :title, presence: true
+  validates :pictures, presence: true
+
+  before_validation :create_pictures
+
+  private
 
   def create_pictures
-    files.each do |file|
-      self.pictures.build file: file
+    files.try(:each) do |file|
+      pictures.build file: file
+    end
+  end
+
+  def should_have_pictures
+    if pictures.empty?
+      errors.add :base, 'Вы не добавили ни одного изображения'
     end
   end
 end

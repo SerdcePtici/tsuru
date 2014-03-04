@@ -7,4 +7,4 @@ p
 - if can? :destroy, @album
   = button_to 'Удалить', @album, data: { confirm: 'Удалить альбом?'}, method: :delete
 - @album.pictures.each do |picture|
-  = image_tag picture.file
+  div = image_tag picture.file, height: 400
