@@ -1,8 +1,8 @@
 p
-  strong Раздел:
+  strong> Раздел:
   = link_to @album.topic.title, @album.topic
 p
-  strong Альбом:
+  strong> Альбом:
   = @album.title
 - if can? :destroy, @album
   = button_to 'Удалить', @album, data: { confirm: 'Удалить альбом?'}, method: :delete

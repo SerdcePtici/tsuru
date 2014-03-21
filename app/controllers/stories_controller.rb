@@ -6,6 +6,10 @@ class StoriesController < ApplicationController
     @current_menu_item = params[:magic] ? :magic : :history
   end
 
+  def show
+    @current_menu_item = @story.magic? ? :magic : :history
+  end
+
   def index
     @stories = @stories.where magic: (params[:magic] == 'true')
     respond_with @stories do |format|
