@@ -18,7 +18,6 @@ Tsuru::Application.routes.draw do
   resources :lessons
 
   get 'pages/curu_albums'
-  get 'pages/curu_tell_history_story'
   get 'pages/curu_lesson'
 
   # The priority is based upon order of creation: first created -> highest priority.
