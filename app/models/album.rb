@@ -7,6 +7,7 @@ class Album < ActiveRecord::Base
   validate :should_have_pictures
   validates :title, presence: true
   validates :pictures, presence: true
+  validates :topic, presence: true, unless: -> a { a.lesson? }
 
   before_validation :create_pictures
 

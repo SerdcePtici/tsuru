@@ -1,10 +1,6 @@
 Tsuru::Application.routes.draw do
 
 
-  resources :topics do
-    resources :albums, shallow: true
-  end
-
   root 'pages#curu_main'
 
   devise_for :admin
@@ -14,6 +10,12 @@ Tsuru::Application.routes.draw do
   resources :stories do
     resources :comments, only: :create
   end
+
+  resources :topics do
+    resources :albums, shallow: true
+  end
+
+  resources :lessons
 
   get 'pages/curu_albums'
   get 'pages/curu_tell_history_story'

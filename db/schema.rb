@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304124333) do
+ActiveRecord::Schema.define(version: 20140321170718) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140304124333) do
     t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "lesson"
   end
 
   add_index "albums", ["topic_id"], name: "index_albums_on_topic_id"
