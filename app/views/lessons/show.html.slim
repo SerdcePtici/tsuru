@@ -5,3 +5,6 @@ p
   = button_to 'Удалить', @lesson, data: { confirm: 'Удалить урок?'}, method: :delete
 - @lesson.pictures.each do |picture|
   div = image_tag picture.file, height: 400
+
+= render partial: 'comments/form'
+= render @lesson.comments

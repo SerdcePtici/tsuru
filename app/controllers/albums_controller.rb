@@ -7,10 +7,6 @@ class AlbumsController < InheritedResources::Base
     @current_menu_item = :topic
   end
 
-  def index
-    @lessons = @lessons.where(lesson: false)
-  end
-
   private
 
   def permitted_params

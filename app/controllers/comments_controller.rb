@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   inherit_resources
-  belongs_to :story, polymorphic: true, optional: true
+  belongs_to :story, :album, :lesson, polymorphic: true, optional: true
   load_and_authorize_resource
 
   actions :create, :destroy

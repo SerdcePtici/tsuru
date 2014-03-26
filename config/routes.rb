@@ -12,10 +12,14 @@ Tsuru::Application.routes.draw do
   end
 
   resources :topics do
-    resources :albums, shallow: true
+    resources :albums, shallow: true do
+      resources :comments, only: :create
+    end
   end
 
-  resources :lessons
+  resources :lessons do
+    resources :comments, only: :create
+  end
 
   get 'pages/curu_albums'
   get 'pages/curu_lesson'
