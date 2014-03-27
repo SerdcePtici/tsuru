@@ -1,0 +1,5 @@
+= simple_fields_for resource do |f|
+  = f.simple_fields_for :pictures do |pf|
+    div
+      = image_tag(pf.object, height: 100) if pf.object.file?
+      = pf.hidden_field :file_cache

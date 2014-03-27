@@ -1,21 +1,23 @@
-= simple_form_for @lesson, as: :lesson, url: lessons_path do |f|
-  = f.error_notification
-  = base_errors @lesson
+.lesson-form
+  /= simple_form_for @lesson, url: upload_pictures_lessons_path, remote: true do |f|
+  = simple_form_for @lesson, url: lessons_path, remote: true do |f|
+    = f.error_notification
+    = base_errors @lesson
 
-  .form-inputs
-    = f.input :title, label: 'Название'
-    = f.simple_fields_for :pictures do |pf|
-      div
-        = image_tag(pf.object, height: 400) if pf.object.file?
-        = pf.hidden_field :file_cache
+    .form-inputs
+      = f.input :title, label: 'Название'
+      .form-images
+        = render partial: 'form_images'
+
     = f.input :files, as: :file, label: false, input_html: { multiple: true }
-  #lessons_attention
-    |Дорогие посетители!
-    br
-    |Изображения, содержащие мат, пошлость, рекламу или дубликат уже имеющихся фото, будут удалены!!!
-    br
-    |с уважением,
-    br
-    |адиминистрация сайта
-  .form-actions
-    = f.submit 'Создать урок'
+
+    #lessons_attention
+      |Дорогие посетители!
+      br
+      |Изображения, содержащие мат, пошлость, рекламу или дубликат уже имеющихся фото, будут удалены!!!
+      br
+      |с уважением,
+      br
+      |адиминистрация сайта
+    .form-actions
+      = f.submit 'Создать урок'

@@ -12,16 +12,17 @@ module Concerns::Album
     validates :title, presence: true
     validates :pictures, presence: true
 
-    before_validation :create_pictures
+    before_validation :upload!
   end
 
-  private
-
-  def create_pictures
+  def upload!
     files.try(:each) do |file|
       pictures.build file: file
     end
+    files = nil
   end
+
+  private
 
   def should_have_pictures
     if pictures.empty?

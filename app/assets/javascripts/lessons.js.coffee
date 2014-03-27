@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+submit_form_to = (url, form) ->
+  old_action = form.attr('action')
+  form.attr 'action', url
+  form.submit()
+  form.attr 'action', old_action
+
+$(document).on 'change', 'body.lessons.new input:file', (e) ->
+  submit_form_to Routes.upload_pictures_lessons_path(format: 'js'), $('form')

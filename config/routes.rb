@@ -19,6 +19,7 @@ Tsuru::Application.routes.draw do
 
   resources :lessons do
     resources :comments, only: :create
+    post :upload_pictures, on: :collection
   end
 
   get 'pages/curu_albums'
