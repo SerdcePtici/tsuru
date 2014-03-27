@@ -11,6 +11,13 @@
           = image_tag(pf.object, height: 400) if pf.object.file?
           = pf.hidden_field :file_cache
       = f.input :files, as: :file, label: false, input_html: { multiple: true }
-
+    #album_attention
+      |Дорогие посетители!
+      br
+      |Изображения, содержащие мат, пошлость, рекламу или дубликат уже имеющихся фото, будут удалены!!!
+      br
+      |с уважением,
+      br
+      |адиминистрация сайта
     .form-actions
       = f.submit 'Создать альбом'
