@@ -1,5 +1,6 @@
 = simple_fields_for resource do |f|
   = f.simple_fields_for :pictures do |pf|
-    div
+    div data = {removable: true}
       = image_tag(pf.object, height: 100) if pf.object.file?
       = pf.hidden_field :file_cache
+      button data = {remove: true} Удалить
