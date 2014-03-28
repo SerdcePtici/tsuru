@@ -9,5 +9,4 @@ p
 - @album.pictures.each do |picture|
   div = image_tag picture.file, height: 400
 
-= render partial: 'comments/form'
-= render @album.comments
+= render partial: 'comments/list'

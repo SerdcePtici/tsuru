@@ -6,5 +6,4 @@ p
 - @lesson.pictures.each do |picture|
   div = image_tag picture.file, height: 400
 
-= render partial: 'comments/form'
-= render @lesson.comments
+= render partial: 'comments/list'

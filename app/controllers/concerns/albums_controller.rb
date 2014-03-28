@@ -2,7 +2,6 @@ module Concerns::AlbumsController
   extend ActiveSupport::Concern
 
   included do
-    respond_to :html, :js
     skip_load_and_authorize_resource only: :upload_pictures
   end
 

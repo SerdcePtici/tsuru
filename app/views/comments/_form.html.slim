@@ -1,4 +1,4 @@
-= simple_form_for [resource, resource.comments.build], html: { class: "comment" } do |f|
+= simple_form_for [comments_parent, comment], html: { class: "comment" }, remote: true do |f|
   = f.error_notification
 
   .form-inputs
