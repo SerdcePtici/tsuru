@@ -1,9 +1,9 @@
 module CommentsHelper
-  def comments_parent
+  def commentable
     resource.kind_of?(Comment) ? parent : resource
   end
 
-  def comment
+  def new_comment
     if resource.kind_of?(Comment)
       resource.new_record? ? resource : parent.comments.build
     else
