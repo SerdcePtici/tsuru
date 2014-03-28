@@ -14,6 +14,7 @@ class Ability
          can :create, Topic
          can :create, Album
          can :create, Lesson
+         can :upload_pictures, Lesson
        end
     #
     # The first argument to `can` is the action you are giving the user 
