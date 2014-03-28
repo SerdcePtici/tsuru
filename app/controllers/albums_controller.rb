@@ -1,22 +1,17 @@
 class AlbumsController < InheritedResources::Base
+  include Concerns::AlbumsController
   load_and_authorize_resource
   belongs_to :topic, shallow: true
   actions :all, except: :index
-  respond_to :html, :js
 
   before_action do
     @current_menu_item = :topic
   end
 
-  def create
-    create! do |success, failure|
-      failure.js { render action: 'new' }
-    end
-  end
-
   def upload_pictures
-    @lesson = Album.new permitted_params[:album]
-    @lesson.upload!
+    authorize! :create, Album
+    @album = Album.new permitted_params[:album]
+    @album.upload!
     respond_to do |format|
       format.js { render action: 'new' }
     end

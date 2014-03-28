@@ -1,3 +1,2 @@
-$(document).on 'click', 'button[data-remove]', (e) ->
+$(document).on 'click', 'button[data-remove]', ->
   $(@).closest('[data-removable]').remove()
-  e.preventDefault()

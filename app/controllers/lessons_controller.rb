@@ -1,18 +1,13 @@
 class LessonsController < InheritedResources::Base
+  include Concerns::AlbumsController
   load_and_authorize_resource
-  respond_to :html, :js
 
   before_action do
     @current_menu_item = :lessons
   end
 
-  def create
-    create! do |success, failure|
-      failure.js { render action: 'new' }
-    end
-  end
-
   def upload_pictures
+    authorize! :create, Lesson
     @lesson = Lesson.new permitted_params[:lesson]
     @lesson.upload!
     respond_to do |format|

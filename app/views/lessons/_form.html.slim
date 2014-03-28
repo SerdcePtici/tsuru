@@ -5,9 +5,9 @@
   .form-inputs
     = f.input :title, label: 'Название'
     .form-images
-      = render partial: 'form_images'
+      = render partial: 'shared/form_images'
 
-  = f.input :files, as: :file, label: false, input_html: { multiple: true }
+    = f.input_field :files, as: :file, multiple: true, data: { :'submit-to' => upload_pictures_lessons_path }
 
   #lessons_attention
     |Дорогие посетители!

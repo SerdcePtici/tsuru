@@ -4,11 +4,11 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
-    = f.simple_fields_for :pictures do |pf|
-      div
-        = image_tag(pf.object, height: 400) if pf.object.file?
-        = pf.hidden_field :file_cache
-    = f.input :files, as: :file, label: false, input_html: { multiple: true }
+    .form-images
+      = render partial: 'shared/form_images'
+
+    = f.input_field :files, as: :file, multiple: true, data: { :'submit-to' => upload_pictures_topic_albums_path(parent) }
+
   #album_attention
     |Дорогие посетители!
     br
