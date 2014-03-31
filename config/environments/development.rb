@@ -29,3 +29,5 @@ Tsuru::Application.configure do
   config.sass.preferred_syntax = :sass
   config.sass.debug_info = true
 end
+
+Tsuru::Application.assets.unregister_postprocessor 'application/javascript', Sprockets::SafetyColons
