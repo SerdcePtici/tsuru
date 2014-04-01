@@ -1,6 +1,7 @@
-= simple_fields_for resource do |f|
-  = f.simple_fields_for :pictures do |pf|
-    div data = {removable: true}
-      = image_tag(pf.object, height: 100) if pf.object.file?
-      = pf.hidden_field :file_cache
-      button type='button' data = {remove: true} Удалить
+ul data-sortable=true
+  = simple_fields_for resource do |f|
+    = f.simple_fields_for :pictures do |pf|
+      li data = {removable: true}
+        = image_tag(pf.object, height: 100) if pf.object.file?
+        = pf.hidden_field :file_cache
+        button type='button' data = {remove: true} Удалить

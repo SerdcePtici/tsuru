@@ -82,6 +82,8 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.2.0)
+      railties (>= 3.2.16)
     json (1.8.1)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -178,6 +180,7 @@ DEPENDENCIES
   devise
   inherited_resources
   jquery-rails
+  jquery-ui-rails
   rails (= 4.0.4)
   remotipart (~> 1.2)
   russian
