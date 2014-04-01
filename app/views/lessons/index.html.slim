@@ -6,10 +6,11 @@
   |Особая просьба в "названии" также указывать авторов схем.
 br
 
-- @lessons.each do |lesson|
-  p = link_to lesson.title, lesson_path(lesson)
-
-br
+div
+  - @lessons.each do |lesson|
+    = link_to lesson do
+      p = lesson.title
+      = image_tag lesson.pictures.first, height: 200
 
 #add_lesson
   = link_to 'Создать урок...', new_lesson_path

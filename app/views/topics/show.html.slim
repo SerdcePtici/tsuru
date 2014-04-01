@@ -5,7 +5,11 @@ p
 br
 | Альбомы:
 br
-- @topic.albums.each do |album|
-  p = link_to album.title, album
+
+div
+  - @topic.albums.each do |album|
+    = link_to album do
+      p = album.title
+      = image_tag album.pictures.first, height: 200
 
 = link_to 'Создать альбом...', new_topic_album_path(@topic), class: 'diff_new_album'
