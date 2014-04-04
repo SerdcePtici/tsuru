@@ -5,6 +5,12 @@ class TopicsController < InheritedResources::Base
     @current_menu_item = :topic
   end
 
+  def create
+    create! do |success, failure|
+      success.js { redirect_via_turbolinks_to @topic }
+    end
+  end
+
   private
 
   def permitted_params

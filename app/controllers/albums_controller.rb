@@ -13,7 +13,7 @@ class AlbumsController < InheritedResources::Base
     @album = Album.new permitted_params[:album]
     @album.upload!
     respond_to do |format|
-      format.js { render action: 'new' }
+      format.js { render :new }
     end
   end
 

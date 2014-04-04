@@ -5,12 +5,6 @@ class CommentsController < ApplicationController
 
   actions :create, :destroy
 
-  def create
-    create! do |success, failure|
-      failure.js { render action: 'new' }
-    end
-  end
-
   def destroy
     destroy! do |success, failure|
       success.js { render :destroy }

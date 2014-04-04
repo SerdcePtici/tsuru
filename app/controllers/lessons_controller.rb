@@ -1,4 +1,5 @@
-class LessonsController < InheritedResources::Base
+class LessonsController < ApplicationController
+  inherit_resources
   include Concerns::AlbumsController
   load_and_authorize_resource
 
@@ -11,7 +12,7 @@ class LessonsController < InheritedResources::Base
     @lesson = Lesson.new permitted_params[:lesson]
     @lesson.upload!
     respond_to do |format|
-      format.js { render action: 'new' }
+      format.js { render :new }
     end
   end
 
