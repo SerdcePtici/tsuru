@@ -13,6 +13,6 @@ class CommentsController < ApplicationController
   end
 
   def permitted_params
-    params.permit(comment: [:author, :comment, :text])
+    params.permit(comment: [:author, :comment, picture_attributes: [:file, :file_cache]])
   end
 end

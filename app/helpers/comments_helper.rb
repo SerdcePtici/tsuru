@@ -8,6 +8,6 @@ module CommentsHelper
        resource
     else
       commentable.comments.build
-    end
+    end.prepare_for_new
   end
 end

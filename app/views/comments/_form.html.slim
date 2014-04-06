@@ -5,6 +5,10 @@
   #comment_table
     = f.input :author, label: 'Имя гостя:'
     = f.input :comment, label: 'Комментарий:'
+    = f.simple_fields_for :picture do |pf|
+      = image_tag(pf.object, height: 100) if pf.object.file?
+      = pf.input :file, label: 'Картинка:', as: :file, required: false
+      = pf.input :file_cache, as: :hidden
 
   #attention_comment
     |Дорогие посетители!
