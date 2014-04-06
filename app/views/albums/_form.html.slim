@@ -1,4 +1,4 @@
-= simple_form_for [parent, @album], remote: true do |f|
+= simple_form_for [parent, @album], remote: true, html: { honeypot: true } do |f|
   = f.error_notification
   = base_errors @album
 

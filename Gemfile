@@ -17,6 +17,8 @@ gem 'slim-rails'
 # Forms
 gem 'simple_form'
 
+gem 'honeypot-captcha'
+
 # Lists
 gem 'acts_as_list'
 

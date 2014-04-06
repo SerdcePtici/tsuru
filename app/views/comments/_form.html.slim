@@ -1,4 +1,4 @@
-= simple_form_for [commentable, new_comment], html: { class: "comment" }, remote: true do |f|
+= simple_form_for [commentable, new_comment], remote: true, html: { class: :comment, honeypot: true  } do |f|
   = f.error_notification
 
   .form-inputs
