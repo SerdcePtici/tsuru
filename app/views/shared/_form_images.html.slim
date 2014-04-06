@@ -4,4 +4,4 @@ ul data-sortable=true
       li data = {removable: true}
         = image_tag(pf.object, height: 100) if pf.object.file?
         = pf.hidden_field :file_cache
-        button type='button' data = {remove: true} Удалить
+        button.del type='button' data = {remove: true} Удалить
