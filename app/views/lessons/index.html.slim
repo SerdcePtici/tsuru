@@ -8,7 +8,7 @@ br
 
 div
   - @lessons.each do |lesson|
-    = link_to lesson do
+    = link_to lesson, class: :lesson_set do
       p = lesson.title
       = image_tag lesson.pictures.first, height: 200
 
