@@ -1,6 +1,6 @@
 - @title = 'ВАША ИСТОРИЯ'
 
-= simple_form_for @story, html: { class: "story" } do |f|
+= simple_form_for @story, html: { class: :story, honeypot: true } do |f|
   = f.error_notification
 
   #story_table

@@ -1,4 +1,4 @@
-= simple_form_for @lesson, remote: true do |f|
+= simple_form_for @lesson, remote: true, html: { honeypot: true } do |f|
   = f.error_notification
   = base_errors @lesson
 
