@@ -19,7 +19,7 @@ module Concerns::Album
     files.try(:each) do |file|
       pictures.build file: file
     end
-    files = nil
+    self.files = nil
   end
 
   private

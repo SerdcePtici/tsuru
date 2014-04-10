@@ -10,16 +10,34 @@ class AlbumsController < InheritedResources::Base
 
   def upload_pictures
     authorize! :create, Album
-    @album = Album.new permitted_params[:album]
+    begin
+      @album = Album.find params[:id]
+      @album.assign_attributes permitted_params[:album]
+    rescue ActiveRecord::RecordNotFound
+      @album = Album.new permitted_params[:album]
+    end
     @album.upload!
-    respond_to do |format|
-      format.js { render :new }
+    if @album.new_record?
+      respond_to do |format|
+        format.js { render :new }
+      end
+    end
+  end
+
+  def update
+    update! do |success, failure|
+      success.js { redirect_via_turbolinks_to @album }
     end
   end
 
   private
 
   def permitted_params
-    params.permit album: [:title, files: [], pictures_attributes: [:file_cache]]
+    if action_name.in? %w[create upload_pictures]
+      params.permit album: [:title, files: [], pictures_attributes: [:file_cache]]
+    else
+      params.permit album: [files: [], pictures_attributes: [:file_cache]]
+    end
   end
+
 end

@@ -14,7 +14,7 @@ Tsuru::Application.routes.draw do
   resources :topics do
     resources :albums, shallow: true do
       resources :comments, only: :create
-      post :upload_pictures, on: :collection
+      post 'upload_pictures(/:id)', action: :upload_pictures, on: :collection, as: :upload_pictures
     end
   end
 
