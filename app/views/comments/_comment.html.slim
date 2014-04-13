@@ -6,5 +6,6 @@
       | #{l comment.created_at, format: :long} #{comment.author}
     .comment_content
       p = comment.comment
-      p = link_to comment.picture.file.url do
-        = image_tag(comment.picture, height: 200) if comment.picture
+      - if comment.picture
+        p = link_to comment.picture.file.url do
+          = image_tag(comment.picture, height: 200) if comment.picture
