@@ -13,6 +13,7 @@ class Ability
          can :create, Comment
          can :create, Topic
          can :create, Album
+         can :update, Album
          can :create, Lesson
        end
     #
