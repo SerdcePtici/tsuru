@@ -21,6 +21,9 @@ module Tsuru
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
     config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+      g.request_specs false
       g.stylesheets false
     end
   end
