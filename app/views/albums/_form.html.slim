@@ -7,7 +7,7 @@
     .form-images
       = render partial: 'shared/form_images'
 
-    = f.input_field :files, as: :file, multiple: true, data: { :'submit-to' => upload_pictures_topic_albums_path(parent) }
+    = f.input :files,  label: 'Добавить изображение', as: :file, multiple: true, data: { :'submit-to' => upload_pictures_topic_albums_path(parent) }
 
   #album_attention
     |Дорогие посетители!
