@@ -11,5 +11,5 @@ div
     = link_to album do
       p = album.title
       = image_tag album.pictures.first, height: 200
-
-= link_to 'Создать альбом...', new_topic_album_path(@topic), class: 'diff_new_album'
+#add_album
+  = link_to 'Создать альбом...', new_topic_album_path(@topic), class: 'diff_new_album'

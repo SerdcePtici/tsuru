@@ -39,16 +39,17 @@ textarea, input[type=text]
 
 
 input[type=file]
-  font-family: Tahoma, Arial
-  font-size: 17px
+  position: absolute
+  clip: rect(0,0,0,0)
 
-input[type=submit]
+input[type=submit], label.file
   font-family: Tahoma, Arial
   font-size: 17px
   border: 1px solid
   border-color: #ffffff
   background-color: #ffffff
   box-shadow: none
+  padding: 3px
   &:hover
     border-color: #f5c2a3
   &:active
@@ -100,7 +101,7 @@ span.error
   color: darkred
   clear: both
 
-#add_topic, .diff_new_album, #add_lesson, #add_story
+#add_topic, #add_album, #add_lesson, #add_story
   a
     font-family: Tahoma, Arial
     margin-top: 20px
