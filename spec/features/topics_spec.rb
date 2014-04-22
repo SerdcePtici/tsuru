@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature "Topics" do
+feature 'Topics' do
   scenario 'User adds new topic' do
     visit '/topics/new'
     fill_in 'Название', with: 'Птички'

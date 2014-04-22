@@ -67,12 +67,19 @@ group :development do
   gem 'binding_of_caller'
   gem 'coffee-rails-source-maps'
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails'
   gem 'capybara'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
