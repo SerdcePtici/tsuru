@@ -85,9 +85,7 @@ describe TopicsController do
 
 
   describe 'DELETE destroy' do
-    before do
-      sign_in create(:admin)
-    end
+    before { sign_in create(:admin) }
 
     it 'destroys the requested topic' do
       topic = Topic.create! valid_attributes
