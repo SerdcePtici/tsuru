@@ -4,5 +4,6 @@ class PictureController < ApplicationController
     @picturable = Lesson.new
     file = params[:picturable][:files].first
     @picturable.pictures.build file: file
+    #TODO check if proper file uploaded
   end
 end

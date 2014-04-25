@@ -9,7 +9,7 @@
 
     = simple_fields_for :picturable do |pf|
       = pf.input :files,  label: 'Добавить изображение',
-        as: :file, input_html: {multiple: true, id: 'fileupload', data: { url: picture_upload_path }}
+        as: :file, input_html: {multiple: true, data: { url: picture_upload_path }}
 
   #lessons_attention
     |Дорогие посетители!
