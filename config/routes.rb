@@ -5,6 +5,8 @@ Tsuru::Application.routes.draw do
 
   devise_for :admin
 
+  post 'picture/upload'
+
   resources :comments, only: :destroy
 
   resources :stories do

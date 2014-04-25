@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.sortable
-//= require jquery.remotipart
+//= require jquery-fileupload/basic
 //= require turbolinks
 //= require_tree .

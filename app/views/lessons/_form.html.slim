@@ -4,10 +4,12 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
-    .form-images
-      = render partial: 'shared/form_images'
+    ul.form-images data-sortable=true
+      = render partial: 'shared/form_images', locals: {picturable: @lesson}
 
-    = f.input :files,  label: 'Добавить изображение', as: :file, input_html: {multiple: true, data: { :'submit-to' => upload_pictures_lessons_path }}
+    = simple_fields_for :picturable do |pf|
+      = pf.input :files,  label: 'Добавить изображение',
+        as: :file, input_html: {multiple: true, id: 'fileupload', data: { url: picture_upload_path }}
 
   #lessons_attention
     |Дорогие посетители!
