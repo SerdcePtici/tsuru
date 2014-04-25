@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Stories' do
+feature 'Stories managment' do
   scenario 'User adds new story' do
     visit '/stories'
     click_on 'Рассказать историю'
@@ -15,13 +15,20 @@ feature 'Stories' do
   end
 
   describe 'with one topic' do
-    before { create :story }
+    before do
+      create :story
+      login
+    end
 
-    scenario 'User looks at list of stories' do
+
+    scenario 'Admin removes story' do
 
       visit '/stories'
+      click_on 'Птички'
+      click_on 'Удалить'
 
-      expect(page).to have_text 'Птички'
+      expect(current_path).to eq '/stories'
+      expect(page).to_not have_text 'Птички'
     end
   end
 end

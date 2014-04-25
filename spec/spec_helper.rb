@@ -74,4 +74,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  require 'helpers/capybara_auth_helpers'
+  config.include CapybaraAuthHelpers, type: :feature
+
 end
