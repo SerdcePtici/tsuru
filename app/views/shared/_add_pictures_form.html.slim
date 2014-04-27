@@ -1,0 +1,5 @@
+= simple_form_for @album, remote: true, html: {class: 'add-pictures-form'} do |f|
+  = render partial: 'shared/pictures_uploader/show', locals: {picturable: @album}
+  = f.submit 'Сохранить'
+  /TODO show button only if there are any new pictures
+  /TODO why does the page scroll to top after save?

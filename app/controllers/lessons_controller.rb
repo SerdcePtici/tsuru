@@ -7,15 +7,6 @@ class LessonsController < ApplicationController
     @current_menu_item = :lessons
   end
 
-  def upload_pictures
-    authorize! :create, Lesson
-    @lesson = Lesson.new permitted_params[:lesson]
-    @lesson.upload!
-    respond_to do |format|
-      format.js { render :new }
-    end
-  end
-
   private
 
   def permitted_params

@@ -1,0 +1,7 @@
+.pictures_uploader
+  ul.uploaded_images data-sortable=true
+    = render partial: 'shared/pictures_uploader/uploaded_images', locals: {picturable: picturable}
+
+  = simple_fields_for :picturable do |pf|
+    = pf.input :files,  label: 'Добавить изображение', as: :file,
+      input_html: {multiple: true, data: { url: picture_upload_path, :'form-data' => {picturable_type: picturable.class.name} }}

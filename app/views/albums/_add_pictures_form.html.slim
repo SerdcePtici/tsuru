@@ -1,7 +1,0 @@
-= simple_form_for @album, remote: true, html: {class: 'pictures-form'} do |f|
-  p Добавление изображений
-  .form-inputs
-    .form-images
-      = render partial: 'shared/form_images'
-    = f.input :files,  label: 'Добавить изображение', as: :file, input_html: { multiple: true, data: {:'submit-to' => upload_pictures_topic_albums_path(parent, @album), method: :post}}
-  = f.submit 'Сохранить' if @album.pictures.any? &:new_record?

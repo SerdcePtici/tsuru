@@ -1,2 +1,2 @@
-$('.form-images').append($("<%= j(render partial: 'shared/form_images') %>"));
-refresh_inputs_indexes($('.form-images input'));
+picturesUploader.images_added(
+        "<%= j(render partial: 'shared/pictures_uploader/uploaded_images', locals: {picturable: @picturable}) %>");
