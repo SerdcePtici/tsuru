@@ -1,5 +1,11 @@
-$(document).on 'page:update', ->
-  $('.pictures_uploader input:file[data-url]').fileupload
+$uploader = null
+
+$(document).on 'ready page:change', ->
+  # Remove previous uploader if exists
+  $uploader?.fileupload('destroy')
+  $uploader = $('.pictures_uploader input:file[data-url]')
+
+  $uploader.fileupload
     sequentialUploads: true
 
     fail: (e, data) ->
@@ -7,10 +13,9 @@ $(document).on 'page:update', ->
       console?.error data.errorThrown.stack if data.errorThrown.stack
 
 @picturesUploader =
-  images_added: (dom) ->
-    $('.uploaded_pictures').append $(dom)
+  images_added: (new_picture) ->
+    $('.uploaded_pictures').append $(new_picture)
     @refresh_indexes($('.uploaded_pictures input'));
-    #FIXME images appears multiple times on the form
 
   refresh_indexes: (inputs) ->
     inputs.each (index, input) ->
