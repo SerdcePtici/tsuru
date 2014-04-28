@@ -4,7 +4,6 @@ module Concerns::Album
   included do
     has_many :pictures, as: :picturable, dependent: :destroy
     accepts_nested_attributes_for :pictures, reject_if: :all_blank
-    attr_accessor :files
 
     acts_as_commentable
 
@@ -12,14 +11,6 @@ module Concerns::Album
     validates :title, presence: true
     validates :pictures, presence: true
 
-    before_validation :upload!
-  end
-
-  def upload!
-    files.try(:each) do |file|
-      pictures.build file: file
-    end
-    self.files = nil
   end
 
   private

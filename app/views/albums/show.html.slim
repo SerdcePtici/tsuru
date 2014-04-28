@@ -9,5 +9,5 @@ p
 - @album.pictures.each do |picture|
   div = image_tag picture.file, height: 400
 
-= render partial: 'shared/add_pictures_form', locals: {picturable: true}
+= render partial: 'picture/add_pictures_form', locals: {picturable: @album}
 = render partial: 'comments/list'

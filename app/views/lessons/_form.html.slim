@@ -5,7 +5,7 @@
   .form-inputs
     = f.input :title, label: 'Название'
 
-    = render partial: 'shared/pictures_uploader/show', locals: {picturable: @lesson}
+    = render partial: 'picture/uploader/show', locals: {picturable: @lesson}
 
   #lessons_attention
     |Дорогие посетители!

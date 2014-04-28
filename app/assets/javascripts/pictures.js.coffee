@@ -8,8 +8,8 @@ $(document).on 'page:update', ->
 
 @picturesUploader =
   images_added: (dom) ->
-    $('.uploaded_images').append $(dom)
-    @refresh_indexes($('.uploaded_images input'));
+    $('.uploaded_pictures').append $(dom)
+    @refresh_indexes($('.uploaded_pictures input'));
     #FIXME images appears multiple times on the form
 
   refresh_indexes: (inputs) ->

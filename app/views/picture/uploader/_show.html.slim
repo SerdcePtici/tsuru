@@ -1,6 +1,8 @@
+/receives locals: picturable
+
 .pictures_uploader
-  ul.uploaded_images data-sortable=true
-    = render partial: 'shared/pictures_uploader/uploaded_images', locals: {picturable: picturable}
+  ul.uploaded_pictures data-sortable=true
+    = render partial: 'picture/uploader/uploaded_pictures', locals: {picturable: picturable}
 
   = simple_fields_for :picturable do |pf|
     = pf.input :files,  label: 'Добавить изображение', as: :file,
