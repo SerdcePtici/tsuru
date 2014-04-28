@@ -2,7 +2,7 @@ $uploader = null
 
 $(document).on 'ready page:change', ->
   # Remove previous uploader if exists
-  $uploader?.fileupload('destroy')
+  try $uploader.fileupload('destroy')
   $uploader = $('.pictures_uploader input:file[data-url]')
 
   $uploader.fileupload

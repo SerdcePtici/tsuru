@@ -6,10 +6,7 @@
     = f.input :author, label: 'Имя гостя:'
     = f.input :comment, label: 'Комментарий:'
     br
-    = f.simple_fields_for :picture do |pf|
-      = image_tag(pf.object, height: 100) if pf.object.file?
-      = pf.input :file, label: 'Добавить фото вашей  фигурки', as: :file, required: false
-      = pf.input :file_cache, as: :hidden
+    = render partial: 'picture/uploader/show', locals: {picturable: new_comment}
 
   #attention_comment
     |Дорогие посетители!

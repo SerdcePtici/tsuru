@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  include Concerns::Album
+  include AlbumConcern
 
   belongs_to :topic
   validates :topic, presence: true

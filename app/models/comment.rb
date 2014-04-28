@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
-
   include ActsAsCommentable::Comment
+  include Picturable
 
   belongs_to :commentable, polymorphic: true
   has_one :picture, as: :picturable, dependent: :destroy
@@ -11,11 +11,6 @@ class Comment < ActiveRecord::Base
   validates :picture, absence: true, unless: :picturable?
 
   default_scope -> { order('created_at DESC') }
-
-  def prepare_for_new
-    build_picture if picturable? && !picture
-    self
-  end
 
   private
 

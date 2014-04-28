@@ -1,5 +1,7 @@
-module Concerns::Album
+module AlbumConcern
   extend ActiveSupport::Concern
+  include Picturable
+
 
   included do
     has_many :pictures, as: :picturable, dependent: :destroy

@@ -4,10 +4,10 @@ module CommentsHelper
   end
 
   def new_comment
-    if resource.kind_of?(Comment) && resource.new_record?
+    @new_comment ||= if resource.kind_of?(Comment) && resource.new_record?
        resource
     else
       commentable.comments.build
-    end.prepare_for_new
+    end
   end
 end
