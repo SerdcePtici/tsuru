@@ -16,6 +16,7 @@ $(document).on 'ready page:change', ->
   images_added: (new_picture) ->
     $('.uploaded_pictures').append $(new_picture)
     @refresh_indexes($('.uploaded_pictures input'));
+    #FIXME upload if there are many uploaders on the page
 
   refresh_indexes: (inputs) ->
     inputs.each (index, input) ->
