@@ -74,6 +74,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.render_views
+
   # Include custom helpers
   Dir[Rails.root.join('spec/helpers/*.rb')].each {|f| require f}
   config.include CapybaraAuthHelpers, type: :feature

@@ -10,6 +10,6 @@ class LessonsController < ApplicationController
   private
 
   def permitted_params
-    params.permit lesson: [:title, files: [], pictures_attributes: [:file_cache]]
+    params.permit lesson: [:title, files: [], pictures_attributes: [:file_cache, :file]]
   end
 end
