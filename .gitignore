@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore uploads
-/public/uploads
+/public/*/uploads
 
 # Ignore source maps
 /public/assets

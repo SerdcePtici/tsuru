@@ -77,4 +77,11 @@ RSpec.configure do |config|
   require 'helpers/capybara_auth_helpers'
   config.include CapybaraAuthHelpers, type: :feature
 
+  # Cleanup carrierwave uploads
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(CarrierWave::Uploader::Base.root)
+    end
+  end
+
 end
