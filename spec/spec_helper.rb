@@ -74,8 +74,11 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  require 'helpers/capybara_auth_helpers'
+  # Include custom helpers
+  Dir[Rails.root.join('spec/helpers/*.rb')].each {|f| require f}
   config.include CapybaraAuthHelpers, type: :feature
+  config.include GlobalHelpers
+  FactoryGirl::SyntaxRunner.send(:include, GlobalHelpers)
 
   # Cleanup carrierwave uploads
   config.after(:all) do

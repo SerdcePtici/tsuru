@@ -3,6 +3,7 @@ FactoryGirl.define do
     author 'Вася Пупкин'
     title 'Птички'
     text 'Тут какой-то текст'
+    pictures_attributes { [attributes_for(:picture)] }
 
     factory :magic_story do
       author 'Гендальф'
