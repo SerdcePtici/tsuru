@@ -78,7 +78,7 @@ end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'capybara-webkit'
+  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'launchy'
 end

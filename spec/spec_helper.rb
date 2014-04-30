@@ -43,8 +43,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
 
   # Configure capybara
-  require 'capybara/rspec'
-  Capybara.javascript_driver = :webkit
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
 
   config.around :each, :selenium do |example|
     Capybara.current_driver = :selenium
@@ -52,33 +52,34 @@ RSpec.configure do |config|
     Capybara.use_default_driver
   end
 
-  default_crean_strategy = :transaction
   # Configure DatabaseCleaner
   config.before :suite do
-    DatabaseCleaner.strategy = default_crean_strategy
     DatabaseCleaner.clean_with :truncation
   end
 
-  js_clean = proc do |example|
-    DatabaseCleaner.strategy = :truncation
-    example.run
-    DatabaseCleaner.strategy = default_crean_strategy
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
   end
 
-  config.around :each, :js, &js_clean
-  config.around :each, :selenium, &js_clean
+  %i[js selenium].each do |tag|
+    config.before(:each, tag) do
+      DatabaseCleaner.strategy = :truncation
+    end
+  end
 
-  config.around :each do |example|
+  config.before(:each) do
     DatabaseCleaner.start
-    example.run
+  end
+
+  config.after(:each) do
     DatabaseCleaner.clean
   end
 
   config.render_views
 
   # Include custom helpers
-  Dir[Rails.root.join('spec/helpers/*.rb')].each {|f| require f}
-  config.include CapybaraAuthHelpers, type: :feature
+  Dir[Rails.root.join('spec/helpers/*.rb')].each { |f| require f }
+  config.include FeatureHelpers, type: :feature
   config.include GlobalHelpers
   FactoryGirl::SyntaxRunner.send(:include, GlobalHelpers)
 
