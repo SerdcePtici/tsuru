@@ -9,18 +9,18 @@ Tsuru::Application.routes.draw do
 
   resources :comments, only: :destroy
 
-  resources :stories do
+  resources :stories, except: %i[edit update] do
     resources :comments, only: :create
   end
 
   resources :topics do
-    resources :albums, shallow: true do
+    resources :albums, shallow: true, except: %i[index edit] do
       resources :comments, only: :create
       post 'upload_pictures(/:id)', action: :upload_pictures, on: :collection, as: :upload_pictures
     end
   end
 
-  resources :lessons do
+  resources :lessons, except: %i[edit update] do
     resources :comments, only: :create
     post :upload_pictures, on: :collection
   end

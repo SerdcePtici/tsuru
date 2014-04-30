@@ -15,16 +15,8 @@ describe StoriesController do
       expect(:get => '/stories/1').to route_to('stories#show', :id => '1')
     end
 
-    it 'routes to #edit' do
-      expect(:get => '/stories/1/edit').to route_to('stories#edit', :id => '1')
-    end
-
     it 'routes to #create' do
       expect(:post => '/stories').to route_to('stories#create')
-    end
-
-    it 'routes to #update' do
-      expect(:put => '/stories/1').to route_to('stories#update', :id => '1')
     end
 
     it 'routes to #destroy' do

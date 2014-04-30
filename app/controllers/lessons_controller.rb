@@ -2,6 +2,7 @@ class LessonsController < ApplicationController
   inherit_resources
   include Concerns::AlbumsController
   load_and_authorize_resource
+  actions :all, except: %i[edit update]
 
   before_action do
     @current_menu_item = :lessons

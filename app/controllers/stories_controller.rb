@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
   inherit_resources
   load_and_authorize_resource
+  actions :all, except: %i[edit update]
 
   before_action do
     @current_menu_item = params[:magic] ? :magic : :history

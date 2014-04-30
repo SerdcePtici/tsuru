@@ -15,16 +15,8 @@ describe LessonsController do
       expect(:get => '/lessons/1').to route_to('lessons#show', :id => '1')
     end
 
-    it 'routes to #edit' do
-      expect(:get => '/lessons/1/edit').to route_to('lessons#edit', :id => '1')
-    end
-
     it 'routes to #create' do
       expect(:post => '/lessons').to route_to('lessons#create')
-    end
-
-    it 'routes to #update' do
-      expect(:put => '/lessons/1').to route_to('lessons#update', :id => '1')
     end
 
     it 'routes to #destroy' do
