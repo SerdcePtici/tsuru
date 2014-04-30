@@ -86,16 +86,15 @@ describe TopicsController do
 
   describe 'DELETE destroy' do
     before { sign_in create(:admin) }
+    let!(:topic) {create(:topic)}
 
     it 'destroys the requested topic' do
-      topic = Topic.create! valid_attributes
       expect {
         delete :destroy, {id: topic.to_param}, valid_session
       }.to change(Topic, :count).by(-1)
     end
 
     it 'redirects to the topics list' do
-      topic = Topic.create! valid_attributes
       delete :destroy, {id: topic.to_param}, valid_session
       expect(response).to redirect_to(topics_url)
     end
