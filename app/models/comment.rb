@@ -12,10 +12,8 @@ class Comment < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
-  private
-
-  def picturable?
-    commentable.instance_of? Lesson
+  def max_pictures_count
+    commentable.instance_of?(Lesson) ? 1 : 0
   end
 
   # NOTE: install the acts_as_votable plugin if you

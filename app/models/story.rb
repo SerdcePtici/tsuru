@@ -9,4 +9,8 @@ class Story < ActiveRecord::Base
   accepts_nested_attributes_for :pictures, reject_if: :all_blank
 
   validates :pictures, length: { maximum: MAX_PICTURES_COUNT }
+
+  def max_pictures_count
+    MAX_PICTURES_COUNT
+  end
 end
