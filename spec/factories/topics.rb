@@ -1,6 +1,6 @@
 
 FactoryGirl.define do
   factory :topic do
-    title 'Птички'
+    title 'О птичках'
   end
 end

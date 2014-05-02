@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :lesson do
-    title 'Птички'
+    title 'Как делать птичек'
     pictures_attributes { [attributes_for(:picture)] }
   end
 end
