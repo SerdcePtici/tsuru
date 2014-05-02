@@ -21,7 +21,7 @@ feature 'Albums managment' do
 
     scenario 'User adds pictures to album', :js do
       visit album_path album
-      take_screenshot
+
       within '.add-pictures-form' do
         attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
       end
@@ -35,8 +35,8 @@ feature 'Albums managment' do
       end
 
       scenario 'Admin removes album' do
-        visit topic_path topic
-        click_on 'Фотографии птичек'
+        visit album_path album
+        page.should have_text 'Фотографии птичек'
         click_on 'Удалить'
 
         current_path.should eq topic_path topic
