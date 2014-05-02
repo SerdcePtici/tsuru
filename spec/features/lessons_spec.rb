@@ -13,10 +13,10 @@ feature 'Lessons managment' do
     page.should have_selector '#content img', count: 1
   end
 
-  describe 'with one lesson' do
+  describe 'as admin' do
     before do
-      create :lesson
       login
+      create :lesson
     end
 
     scenario 'Admin removes lesson' do

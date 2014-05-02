@@ -10,10 +10,10 @@ feature 'Topics managment' do
     expect(page).to have_text 'Птички'
   end
 
-  describe 'with one topic' do
+  describe 'as admin' do
     before do
-      create :topic
       login
+      create :topic
     end
 
     scenario 'Admin removes  topic' do

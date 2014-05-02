@@ -17,7 +17,7 @@ feature 'Stories managment' do
     page.should have_selector '#content img', count: 1
   end
 
-  describe 'with one topic' do
+  describe 'with one story' do
     before do
       create :story
       login

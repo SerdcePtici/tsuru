@@ -16,10 +16,10 @@ feature 'Albums managment' do
     page.should have_selector '#content img', count: 1
   end
 
-  describe 'with one album' do
+  describe 'as admin' do
     before do
-      create :album, topic: topic, title: 'Фотографии птичек'
       login
+      create :album, topic: topic, title: 'Фотографии птичек'
     end
 
     scenario 'Admin removes album' do

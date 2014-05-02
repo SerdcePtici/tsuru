@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    author 'Вася Пупкин'
+    author 'Маша'
     comment 'Мне всё нравится!!!'
     association :commentable, factory: :story
   end
