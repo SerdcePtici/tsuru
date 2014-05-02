@@ -16,20 +16,32 @@ feature 'Albums managment' do
     page.should have_selector '#content img', count: 1
   end
 
-  describe 'as admin' do
-    before do
-      login
-      create :album, topic: topic, title: 'Фотографии птичек'
+  context 'with one album' do
+    let!(:album) { create :album, topic: topic, title: 'Фотографии птичек' }
+
+    scenario 'User adds pictures to album', :js do
+      visit album_path album
+      take_screenshot
+      within '.add-pictures-form' do
+        attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+      end
+      page.should have_selector '.uploaded_pictures img', count: 1
+      click_on 'Сохранить'
     end
 
-    scenario 'Admin removes album' do
+    context 'as admin' do
+      before do
+        login
+      end
 
-      visit topic_path topic
-      click_on 'Фотографии птичек'
-      click_on 'Удалить'
+      scenario 'Admin removes album' do
+        visit topic_path topic
+        click_on 'Фотографии птичек'
+        click_on 'Удалить'
 
-      current_path.should eq topic_path topic
-      page.should_not have_text 'Фотографии птичек'
+        current_path.should eq topic_path topic
+        page.should_not have_text 'Фотографии птичек'
+      end
     end
   end
 end

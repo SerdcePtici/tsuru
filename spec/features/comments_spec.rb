@@ -13,7 +13,7 @@ feature 'Story comments' do
     page.should have_text 'Супер!'
   end
 
-  describe 'as admin' do
+  context 'as admin' do
     before do
       login
       create :comment, author: 'Маша', commentable: story
@@ -45,7 +45,7 @@ feature 'Album comments' do
     page.should have_text 'Супер!'
   end
 
-  describe 'as admin' do
+  context 'as admin' do
     before do
       login
       create :comment, author: 'Маша', commentable: album
@@ -80,7 +80,7 @@ feature 'Lesson comments' do
     page.should have_selector '.comment img', count: 1
   end
 
-  describe 'as admin' do
+  context 'as admin' do
     before do
       login
       create :comment, author: 'Маша', commentable: lesson

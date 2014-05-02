@@ -13,7 +13,7 @@ feature 'Lessons managment' do
     page.should have_selector '#content img', count: 1
   end
 
-  describe 'as admin' do
+  context 'as admin' do
     before do
       login
       create :lesson

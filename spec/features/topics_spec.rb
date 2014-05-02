@@ -10,21 +10,21 @@ feature 'Topics managment' do
     expect(page).to have_text 'Птички'
   end
 
-  describe 'as admin' do
+  context 'as admin' do
     before do
       login
-      create :topic
+      create :topic, title: 'О птичках'
     end
 
     scenario 'Admin removes  topic' do
 
       visit '/topics'
 
-      click_on 'Птички'
+      click_on 'О птичках'
       click_on 'Удалить'
 
       expect(current_path).to eq '/topics'
-      expect(page).to_not have_text 'Птички'
+      expect(page).to_not have_text 'О птичках'
     end
   end
 end
