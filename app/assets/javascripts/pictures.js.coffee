@@ -24,32 +24,43 @@ class @PicturesUploader
   _fileField: ->
     $('.pictures_uploader input:file[data-url]')
 
-  _maxPicturesCount: ->
+  _update: ->
+    $button = $('div.input.file')
+    if @canUpload()
+      $button.show()
+    else
+      $button.hide()
+    $('.pictures_uploader').trigger('updated', [this])
+
+  canUpload: ->
+    @maxPicturesCount() == null || @picturesCount() < @maxPicturesCount()
+
+  maxPicturesCount: ->
     @_fileField().data('max-pictures-count')
 
-  _picturesCount: ->
+  picturesCount: ->
     $('.uploaded_pictures img').length
 
-  _canUpload: ->
-    @_maxPicturesCount() == null || @_picturesCount() < @_maxPicturesCount()
-
-  _update: ->
-    $botton = $('div.input.file')
-    if @_canUpload()
-      $botton.show()
-    else
-      $botton.hide()
-
   imagesAdded: (new_picture) ->
-    if @_canUpload()
+    if @canUpload()
       $new_picture = $(new_picture)
       $('.uploaded_pictures').append $new_picture
       @_refreshIndexes($('.uploaded_pictures input'));
       @_update()
       $new_picture.on 'removed', =>
         @_update()
-    else
-      console.error 'fail'
+
+addPicturesFormUpdate = (uploader) ->
+  $submitButton = $('.add-pictures-form input[type=submit]')
+  `debugger`
+  if uploader.picturesCount() > 0
+    $submitButton.show()
+  else
+    $submitButton.hide()
 
 $(document).on 'page:update', ->
-  new PicturesUploader
+  uploader = new PicturesUploader
+  addPicturesFormUpdate uploader
+
+$(document).on 'updated', '.add-pictures-form .pictures_uploader', (e, uploader) ->
+  addPicturesFormUpdate uploader
