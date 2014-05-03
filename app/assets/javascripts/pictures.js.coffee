@@ -1,33 +1,55 @@
-@picturesUploader =
-  uploader_selector: '.pictures_uploader input:file[data-url]'
+class @PicturesUploader
+  instance = null
 
-  imagesAdded: (new_picture) ->
-    $('.uploaded_pictures').append $(new_picture)
-    @refreshIndexes($('.uploaded_pictures input'));
-    #FIXME upload if there are many uploaders on the page
+  @instance: ->
+    instance
 
-  refreshIndexes: (inputs) ->
+  constructor: ->
+    instance = this
+
+    # Initialize file field with jQuery File Upload
+    @_fileField().fileupload
+      sequentialUploads: true
+      dropZone: $ 'body'
+
+      fail: (e, data) ->
+        console?.log 'Picture upload error', data
+        console?.error data.errorThrown.stack if data.errorThrown.stack
+
+  _refreshIndexes: (inputs) ->
     inputs.each (index, input) ->
       input.name = input.name.replace /\[\d+\]/, "[#{index}]"
       input.id = input.id.replace /_\d+_/, "_#{index}_"
 
-  fileField: ->
+  _fileField: ->
     $('.pictures_uploader input:file[data-url]')
 
-  maxPicturesCount: ->
-    fileField.data('max_pictures_count')
+  _maxPicturesCount: ->
+    @_fileField().data('max-pictures-count')
 
+  _picturesCount: ->
+    $('.uploaded_pictures img').length
 
-$uploader = null
+  _canUpload: ->
+    @_maxPicturesCount() == null || @_picturesCount() < @_maxPicturesCount()
 
-$(document).on 'ready page:change', ->
-  # Remove previous uploader if exists
-  try $uploader.fileupload('destroy')
-  $uploader = picturesUploader.fileField()
+  _update: ->
+    $botton = $('div.input.file')
+    if @_canUpload()
+      $botton.show()
+    else
+      $botton.hide()
 
-  $uploader.fileupload
-    sequentialUploads: true
+  imagesAdded: (new_picture) ->
+    if @_canUpload()
+      $new_picture = $(new_picture)
+      $('.uploaded_pictures').append $new_picture
+      @_refreshIndexes($('.uploaded_pictures input'));
+      @_update()
+      $new_picture.on 'removed', =>
+        @_update()
+    else
+      console.error 'fail'
 
-    fail: (e, data) ->
-      console?.log 'Picture upload error', data
-      console?.error data.errorThrown.stack if data.errorThrown.stack
+$(document).on 'page:update', ->
+  new PicturesUploader
