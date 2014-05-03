@@ -5,8 +5,8 @@ feature 'Pictures managment' do
     visit '/lessons'
     click_on 'Создать урок'
     fill_in 'Название', with: 'Как делать птичек'
-    attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
-    attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
     page.should have_selector '.uploaded_pictures img', count: 2
     click_on 'Создать урок'
 

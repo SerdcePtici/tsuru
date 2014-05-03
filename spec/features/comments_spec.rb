@@ -8,7 +8,7 @@ feature 'Lesson comments', :js do
     visit lesson_path lesson
     fill_in 'Имя гостя', with: 'Маша'
     fill_in 'Комментарий', with: 'Супер!'
-    attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
     page.should have_selector '.uploaded_pictures img', count: 1
     click_on 'Отправить'
 

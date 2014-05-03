@@ -8,7 +8,7 @@ feature 'Albums managment' do
     click_on topic.title
     click_on 'Создать альбом...'
     fill_in 'Название', with: 'Фотографии птичек'
-    attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
     page.should have_selector '.uploaded_pictures img', count: 1
     click_on 'Создать альбом'
 
@@ -24,7 +24,7 @@ feature 'Albums managment' do
       visit album_path album
 
       within '.add-pictures-form' do
-        attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+        attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
       end
       page.should have_selector '.uploaded_pictures img', count: 1
       click_on 'Сохранить'

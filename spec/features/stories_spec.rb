@@ -7,7 +7,7 @@ feature 'Stories managment' do
     fill_in 'Рассказчик', with: 'Вася Пупкин'
     fill_in 'Название', with: 'Супер история'
     fill_in 'Ваша история', with: 'Тут какой-то текст'
-    attach_file 'Добавить изображение', file_fixture_path('crane.jpg')
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
     page.should have_selector '.uploaded_pictures img', count: 1
     click_on 'Отправить'
 
