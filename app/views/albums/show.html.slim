@@ -1,13 +1,15 @@
-p
-  strong> Раздел:
-  = link_to @album.topic.title, @album.topic
-p
-  strong> Альбом:
-  = @album.title
-- if can? :destroy, @album
-  = button_to 'Удалить', @album, data: { confirm: 'Удалить альбом?'}, method: :delete
-- @album.pictures.each do |picture|
-  div = image_tag picture.file, height: 400
+.album
+  p
+    strong> Раздел:
+    = link_to @album.topic.title, @album.topic
+  p
+    strong> Альбом:
+    = @album.title
+  - if can? :destroy, @album
+    = button_to 'Удалить', @album, data: { confirm: 'Удалить альбом?'}, method: :delete
+  .album-pictures
+    - @album.pictures.each do |picture|
+      div.picture = image_tag picture.file, height: 400
 
 = render partial: 'picture/add_pictures_form', locals: {picturable: @album}
 = render partial: 'comments/list'

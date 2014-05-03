@@ -20,6 +20,7 @@ feature 'Albums managment' do
     let!(:album) { create :album, topic: topic, title: 'Фотографии птичек' }
 
     scenario 'User adds pictures to album', :js do
+      pictures_count = album.pictures.count
       visit album_path album
 
       within '.add-pictures-form' do
@@ -27,6 +28,7 @@ feature 'Albums managment' do
       end
       page.should have_selector '.uploaded_pictures img', count: 1
       click_on 'Сохранить'
+      page.should have_selector '.album-pictures img', count: pictures_count + 1
     end
 
     context 'as admin' do
