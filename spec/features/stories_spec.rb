@@ -8,13 +8,15 @@ feature 'Stories managment' do
     fill_in 'Название', with: 'Супер история'
     fill_in 'Ваша история', with: 'Тут какой-то текст'
     attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
-    page.should have_selector '.uploaded_pictures img', count: 1
+    attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
+    expect(page).not_to have_text 'Добавить изображения'
+    expect(page).to have_selector '.uploaded_pictures img', count: 2
     click_on 'Отправить'
 
-    page.should have_text 'Супер история'
-    page.should have_text 'Рассказчик: Вася Пупкин'
-    page.should have_text 'Тут какой-то текст'
-    page.should have_selector '#content img', count: 1
+    expect(page).to have_text 'Супер история'
+    expect(page).to have_text 'Рассказчик: Вася Пупкин'
+    expect(page).to have_text 'Тут какой-то текст'
+    expect(page).to have_selector '#content img', count: 2
   end
 
   context 'with one story' do
@@ -31,7 +33,7 @@ feature 'Stories managment' do
       click_on 'Удалить'
 
       current_path.should eq '/stories'
-      page.should_not have_text 'Птички'
+      expect(page).to_not have_text 'Птички'
     end
   end
 end

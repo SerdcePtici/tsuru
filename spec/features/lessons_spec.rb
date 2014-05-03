@@ -6,11 +6,11 @@ feature 'Lessons managment' do
     click_on 'Создать урок'
     fill_in 'Название', with: 'Как делать птичек'
     attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
-    page.should have_selector '.uploaded_pictures img', count: 1
+    expect(page).to have_selector '.uploaded_pictures img', count: 1
     click_on 'Создать урок'
 
-    page.should have_text 'Как делать птичек'
-    page.should have_selector '#content img', count: 1
+    expect(page).to have_text 'Как делать птичек'
+    expect(page).to have_selector '#content img', count: 1
   end
 
   context 'as admin' do
@@ -26,7 +26,7 @@ feature 'Lessons managment' do
       click_on 'Удалить'
 
       current_path.should eq '/lessons'
-      page.should_not have_text 'Как делать птичек'
+      expect(page).to_not have_text 'Как делать птичек'
     end
   end
 end

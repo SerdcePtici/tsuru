@@ -9,12 +9,15 @@ feature 'Lesson comments', :js do
     fill_in 'Имя гостя', with: 'Маша'
     fill_in 'Комментарий', with: 'Супер!'
     attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
-    page.should have_selector '.uploaded_pictures img', count: 1
+    expect(page).not_to have_text 'Добавить изображения'
+    expect(page).to have_selector '.uploaded_pictures img', count: 1
     click_on 'Отправить'
 
-    page.should have_text 'Маша'
-    page.should have_text 'Супер!'
-    page.should have_selector '.comment img', count: 1
+    within 'div.comments-list' do
+      expect(page).to have_text 'Маша'
+      expect(page).to have_text 'Супер!'
+      expect(page).to have_selector '.comment img', count: 1
+    end
   end
 
   context 'as admin' do
@@ -25,13 +28,13 @@ feature 'Lesson comments', :js do
 
     scenario 'Admin removes comment' do
       visit lesson_path lesson
-      page.should have_text 'Маша'
+      expect(page).to have_text 'Маша'
       within 'div.comment' do
         click_on 'Удалить'
       end
 
       current_path.should eq lesson_path lesson
-      page.should_not have_text 'Маша'
+      expect(page).to_not have_text 'Маша'
     end
   end
 end
@@ -45,8 +48,10 @@ feature 'Story comments' do
     fill_in 'Комментарий', with: 'Супер!'
     click_on 'Отправить'
 
-    page.should have_text 'Маша'
-    page.should have_text 'Супер!'
+    within 'div.comments-list' do
+      expect(page).to have_text 'Маша'
+      expect(page).to have_text 'Супер!'
+    end
   end
 
   context 'as admin' do
@@ -57,13 +62,13 @@ feature 'Story comments' do
 
     scenario 'Admin removes comment' do
       visit story_path story
-      page.should have_text 'Маша'
+      expect(page).to have_text 'Маша'
       within 'div.comment' do
         click_on 'Удалить'
       end
 
       current_path.should eq story_path story
-      page.should_not have_text 'Маша'
+      expect(page).to_not have_text 'Маша'
     end
   end
 end
@@ -77,8 +82,10 @@ feature 'Album comments' do
     fill_in 'Комментарий', with: 'Супер!'
     click_on 'Отправить'
 
-    page.should have_text 'Маша'
-    page.should have_text 'Супер!'
+    within 'div.comments-list' do
+      expect(page).to have_text 'Маша'
+      expect(page).to have_text 'Супер!'
+    end
   end
 
   context 'as admin' do
@@ -89,13 +96,13 @@ feature 'Album comments' do
 
     scenario 'Admin removes comment' do
       visit album_path album
-      page.should have_text 'Маша'
+      expect(page).to have_text 'Маша'
       within 'div.comment' do
         click_on 'Удалить'
       end
 
       current_path.should eq album_path album
-      page.should_not have_text 'Маша'
+      expect(page).to_not have_text 'Маша'
     end
   end
 end
