@@ -3,4 +3,3 @@
 = simple_form_for picturable, remote: true, html: {class: 'add-pictures-form'} do |f|
   = render partial: 'picture/uploader/show', locals: {picturable: picturable}
   = f.submit 'Сохранить'
-  /TODO why does the page scroll to top after save?

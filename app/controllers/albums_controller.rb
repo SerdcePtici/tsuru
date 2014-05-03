@@ -8,12 +8,6 @@ class AlbumsController < InheritedResources::Base
     @current_menu_item = :topic
   end
 
-  def update
-    update! do |success, failure|
-      success.js { redirect_via_turbolinks_to @album }
-    end
-  end
-
   private
 
   def permitted_params
