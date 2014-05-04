@@ -9,7 +9,7 @@ feature 'Authorization' do
 
     scenario 'Log in' do
 
-      visit '/admin/sign_in'
+      visit '/users/sign_in'
 
       fill_in 'Email', with: email
       fill_in 'Password', with: password

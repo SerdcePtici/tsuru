@@ -1,6 +1,6 @@
 
 FactoryGirl.define do
-  factory :admin do
+  factory :admin, class: User do
     sequence :email do |n|
       "admin#{n}@example.com"
     end

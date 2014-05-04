@@ -3,7 +3,7 @@ Tsuru::Application.routes.draw do
 
   root 'pages#curu_main'
 
-  devise_for :admin
+  devise_for :users
 
   post 'picture/upload'
 
