@@ -9,11 +9,11 @@ class PictureController < ApplicationController
     end
 
     @picturable = picturable_type.new
-    if @picturable.multiple_pictures?
+    picture = if @picturable.multiple_pictures?
       @picturable.pictures.build file: params[:picturable][:files].first
     else
       @picturable.build_picture file: params[:picturable][:files]
     end
-    #TODO check if proper file uploaded
+    render nothing: true, status: :bad_request unless picture.valid?
   end
 end
