@@ -28,7 +28,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [1024, 768]
   #
   # def scale(width, height)
-  #   # do something
+  #   # do something                                                                                  1
   # end
 
   # Create different versions of your uploaded files:
