@@ -6,12 +6,12 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 
 # Database adapter
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'sqlite3', groups: [:development, :test]
+gem 'pg', group: :production
 
 group :production do
-  gem 'pg'
+  # For deploy to Heroku
+  gem 'rails_12factor'
 end
 
 # Controllers
