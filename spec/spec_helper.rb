@@ -83,6 +83,12 @@ RSpec.configure do |config|
   config.include GlobalHelpers
   FactoryGirl::SyntaxRunner.send(:include, GlobalHelpers)
 
+  # Disable image processing
+  CarrierWave.configure do |car_config|
+    car_config.storage = :file
+    car_config.enable_processing = false
+  end
+
   # Cleanup carrierwave uploads
   config.after(:all) do
     if Rails.env.test?
