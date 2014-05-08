@@ -1,3 +1,3 @@
 class Lesson < ActiveRecord::Base
-  include Concerns::Album
+  include AlbumConcern
 end

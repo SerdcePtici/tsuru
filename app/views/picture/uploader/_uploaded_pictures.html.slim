@@ -1,0 +1,9 @@
+/receives locals: picturable
+
+= simple_fields_for picturable do |f|
+  = f.simple_fields_for picturable.pictures_field_name do |pf|
+    - if pf.object.new_record?
+      li data = {removable: true}
+        = image_tag(pf.object, height: 100) if pf.object.file?
+        = pf.hidden_field :file_cache
+        button.del type='button' data = {remove: true} Удалить

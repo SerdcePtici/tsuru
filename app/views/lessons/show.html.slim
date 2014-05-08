@@ -1,8 +1,10 @@
-p
-  = @lesson.title
-- if can? :destroy, @lesson
-  = button_to 'Удалить', @lesson, data: { confirm: 'Удалить урок?'}, method: :delete
-- @lesson.pictures.each do |picture|
-  div = image_tag picture.file, height: 400
+.lesson
+  p
+    = @lesson.title
+  - if can? :destroy, @lesson
+    = button_to 'Удалить', @lesson, data: { confirm: 'Удалить урок?'}, method: :delete
+  .lesson-pictures
+  - @lesson.pictures.each do |picture|
+    div.picture = image_tag picture.file, height: 400
 
 = render partial: 'comments/list'

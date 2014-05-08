@@ -1,0 +1,16 @@
+/receives locals: picturable
+
+- if picturable.picturable?
+  .pictures_uploader
+    ul.uploaded_pictures data-sortable=true
+      = render partial: 'picture/uploader/uploaded_pictures', locals: {picturable: picturable}
+
+    = simple_fields_for :picturable do |pf|
+      = pf.input :files,
+        label: file_field_label(picturable),
+        as: :file,
+        required: false,
+        input_html: {multiple: picturable.multiple_pictures?,
+          data: {url: picture_upload_path,
+                 :'form-data' => {picturable_type: picturable.class.name},
+                  max_pictures_count: picturable.max_pictures_count }}

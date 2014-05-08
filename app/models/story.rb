@@ -1,4 +1,5 @@
 class Story < ActiveRecord::Base
+  include Picturable
   MAX_PICTURES_COUNT = 2
 
   validates :author, :title, :text, presence: true
@@ -9,4 +10,7 @@ class Story < ActiveRecord::Base
 
   validates :pictures, length: { maximum: MAX_PICTURES_COUNT }
 
+  def max_pictures_count
+    MAX_PICTURES_COUNT
+  end
 end

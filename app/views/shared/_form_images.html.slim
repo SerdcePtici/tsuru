@@ -1,8 +1,0 @@
-ul data-sortable=true
-  = simple_fields_for resource do |f|
-    = f.simple_fields_for :pictures do |pf|
-      - if pf.object.new_record?
-        li data = {removable: true}
-          = image_tag(pf.object, height: 100) if pf.object.file?
-          = pf.hidden_field :file_cache
-          button.del type='button' data = {remove: true} Удалить

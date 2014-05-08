@@ -21,10 +21,6 @@
     |с уважением,
     br
     |адиминистрация сайта
-  #buttons_story
-    = f.simple_fields_for :pictures do |pf|
-      = image_tag(pf.object, height: 400) if pf.object.file?
-      = pf.input :file, label: 'Добавить изображение', as: :file, required: false
-      = pf.hidden_field :file_cache
-    .actions
-      = f.submit 'Отправить'
+  = render partial: 'picture/uploader/show', locals: {picturable: @story}
+  .actions
+    = f.submit 'Отправить'

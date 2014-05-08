@@ -4,10 +4,8 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
-    .form-images
-      = render partial: 'shared/form_images'
 
-    = f.input :files,  label: 'Добавить изображение', as: :file, multiple: true, data: { :'submit-to' => upload_pictures_topic_albums_path(parent) }
+    = render partial: 'picture/uploader/show', locals: {picturable: @album}
 
   #album_attention
     |Дорогие посетители!

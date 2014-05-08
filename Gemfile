@@ -31,6 +31,7 @@ gem 'cancan'
 
 # Uploads
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -46,7 +47,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Ajax file upload
-gem 'remotipart', '~> 1.2'
+gem 'jquery-fileupload-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -67,6 +68,20 @@ group :development do
   gem 'binding_of_caller'
   gem 'coffee-rails-source-maps'
   gem 'spring'
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta2'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password

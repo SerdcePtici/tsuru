@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   layout 'layout'
 
   def current_ability
-    @current_ability ||= Ability.new(current_admin)
+    @current_ability ||= Ability.new(current_user)
   end
 end

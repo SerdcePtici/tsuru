@@ -9,12 +9,13 @@ class Ability
          can :manage, :all
        else
          can :read, :all
+         can :upload, Picture
          can :create, Story
-         can :create, Comment
          can :create, Topic
          can :create, Album
          can :update, Album
          can :create, Lesson
+         can :create, Comment
        end
     #
     # The first argument to `can` is the action you are giving the user 

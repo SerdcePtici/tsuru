@@ -30,4 +30,7 @@ Tsuru::Application.configure do
   config.sass.debug_info = true
 end
 
+# For proper source_maps work
 Tsuru::Application.assets.unregister_postprocessor 'application/javascript', Sprockets::SafetyColons
+
+BetterErrors.editor='rubymine://open?url=file://%{file}&line=%{line}'

@@ -3,7 +3,7 @@ br
 | Рассказчик: #{@story.author}
 = simple_format @story.text
 - if can? :destroy, @story
-  = button_to 'Удалить', @story, method: :delete, confirm: 'Удалить историю?'
+  = button_to 'Удалить', @story, method: :delete, data: { confirm: 'Удалить историю?' }
 br
 - @story.pictures.each do |picture|
   = image_tag picture, height: 400
