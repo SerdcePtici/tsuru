@@ -77,8 +77,8 @@ RSpec.configure do |config|
 
   config.render_views
 
-  # Include custom helpers
-  Dir[Rails.root.join('spec/helpers/*.rb')].each { |f| require f }
+  # Include custom spec_helpers
+  Dir[Rails.root.join('spec/spec_helpers/*.rb')].each { |f| require f }
   config.include FeatureHelpers, type: :feature
   config.include GlobalHelpers
   FactoryGirl::SyntaxRunner.send(:include, GlobalHelpers)
