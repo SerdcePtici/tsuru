@@ -2,7 +2,7 @@
 
 # install software
 sudo apt-get update
-sudo apt-get install -y git build-essential nodejs sqlite3 libsqlite3-dev mc zsh
+sudo apt-get install -y git build-essential nodejs sqlite3 imagemagick libsqlite3-dev postgresql-server-dev-all mc zsh
 
 # setting up zsh
 wget --no-check-certificate https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
@@ -19,9 +19,9 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 source .bash_profile
 
 # install ruby, bundler and other gems
-rbenv install 2.1.0
-rbenv global 2.1.0
-gem install bundler ruby-debug-ide
+rbenv install 2.1.2
+rbenv global 2.1.2
+gem install bundler
 rbenv rehash
 
 # install project dependencies with bundler
