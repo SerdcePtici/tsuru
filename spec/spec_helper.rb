@@ -85,7 +85,6 @@ RSpec.configure do |config|
 
   # Disable image processing
   CarrierWave.configure do |car_config|
-    car_config.storage = :file
     car_config.enable_processing = false
   end
 

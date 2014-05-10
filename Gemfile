@@ -39,6 +39,7 @@ gem 'cancan'
 
 # Uploads
 gem 'carrierwave'
+gem 'fog'
 gem 'mini_magick'
 
 # Use Uglifier as compressor for JavaScript assets
