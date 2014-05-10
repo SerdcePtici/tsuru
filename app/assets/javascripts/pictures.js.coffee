@@ -52,7 +52,6 @@ class @PicturesUploader
 
 addPicturesFormUpdate = (uploader) ->
   $submitButton = $('.add-pictures-form input[type=submit]')
-  `debugger`
   if uploader.picturesCount() > 0
     $submitButton.show()
   else
