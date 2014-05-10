@@ -9,8 +9,9 @@ html
     title = @title || 'ЦУРУ'
   body class=([controller.controller_name, controller.action_name])
     #root
-      p#notice = notice
-      = render 'devise/logout'
+      #admin
+        p#notice = notice
+        = render 'devise/logout'
       - if content_for? :content
         = yield :content
       - else
