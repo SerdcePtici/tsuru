@@ -3,9 +3,11 @@
 
   .form-inputs
   #comment_table
-    = f.input :author, label: 'Имя гостя:'
+    .comment_row
+      = f.input :author, label.comment_cell: 'Имя гостя:'
     br
-    = f.input :comment, label: 'Комментарий:'
+    .comment_row
+      = f.input :comment, label.comment_cell: 'Комментарий:'
     br
     br
     = render partial: 'picture/uploader/show', locals: {picturable: new_comment}
