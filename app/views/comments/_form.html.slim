@@ -4,6 +4,7 @@
   .form-inputs
   #comment_table
     = f.input :author, label: 'Имя гостя:'
+    br
     = f.input :comment, label: 'Комментарий:'
     br
     = render partial: 'picture/uploader/show', locals: {picturable: new_comment}
