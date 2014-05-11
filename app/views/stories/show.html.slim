@@ -6,7 +6,8 @@ span.speaker> Рассказчик:
 = @story.author
 br
 br
-= simple_format @story.text
+#long_story_text
+  = simple_format @story.text
 - if can? :destroy, @story
   = button_to 'Удалить', @story, method: :delete, data: { confirm: 'Удалить историю?' }
 br
