@@ -5,9 +5,9 @@
 
   #story_table
     .field
-      = f.input :author, label: 'Рассказчик:'
-    .field
       = f.input :title, label: 'Название:'
+    .field
+      = f.input :author, label: 'Рассказчик:'
     .field
       = f.input :text, label: 'Ваша история:'
     = f.input_field :magic, as: :hidden, value: params[:magic] || false

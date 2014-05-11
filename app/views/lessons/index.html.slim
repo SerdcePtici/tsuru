@@ -9,7 +9,7 @@ div
   - @lessons.each do |lesson|
     = link_to lesson, class: :lesson_set do
       p = lesson.title
-      = image_tag lesson.pictures.first, height: 200
+      = image_tag lesson.pictures.first, height: 150
 
 #add_lesson
   = link_to 'Создать урок...', new_lesson_path

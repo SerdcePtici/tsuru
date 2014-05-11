@@ -2,7 +2,8 @@
 
 = @story.title
 br
-| Рассказчик: #{@story.author}
+span.speaker Рассказчик:
+= @story.author
 br
 br
 = simple_format @story.text
@@ -10,7 +11,7 @@ br
   = button_to 'Удалить', @story, method: :delete, data: { confirm: 'Удалить историю?' }
 br
 - @story.pictures.each do |picture|
-  = image_tag picture, height: 400
+  div.picture = image_tag picture
   br
 
 = render partial: 'comments/list'

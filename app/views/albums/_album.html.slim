@@ -1,14 +1,14 @@
 .album
   p
-    strong> Раздел:
+    span.speaker> Раздел:
     = link_to album.topic.title, album.topic
   p
-    strong> Альбом:
+    span.speaker> Альбом:
     = album.title
   - if can? :destroy, album
     = button_to 'Удалить', album, data: { confirm: 'Удалить альбом?'}, method: :delete
   .album-pictures
     - album.pictures.each do |picture|
-      div.picture = image_tag picture.file, height: 400
+      div.picture = image_tag picture.file
 
   = render partial: 'picture/add_pictures_form', locals: {picturable: @album}
