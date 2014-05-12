@@ -1,6 +1,6 @@
 - if comment.persisted?
   .comment id="comment-#{comment.id}"
-  #comment_show
+  .comment_show
     - if can? :destroy, comment
       = button_to 'Удалить', comment, method: :delete, remote: true, data: { confirm: 'Удалить комментарий?' }
     .comment_name #{l comment.created_at, format: :long} #{comment.author}

@@ -64,13 +64,20 @@ input[type=submit], label.file
   font-size: 20px
   margin-bottom: 10px
 
+.form_table
+  display: table
+  font-family: Tahoma, Arial
+  font-size: 17px
+  text-align: left
+  margin-bottom: 20px
+  .input
+    display: table-row
+    label, input, textarea
+      display: table-cell
 
-#attention_comment
-  margin:
-    top: 5px
-    bottom: 10px
-  font-size: 12px
-  color: darkred
+textarea
+  vertical-align: middle
+  max-width: 400px
 
 .alert, .alert-error
   font-family: Tahoma, Arial
@@ -82,7 +89,7 @@ span.error
   color: darkred
   font-family: Tahoma, Arial
 
-.field
+.input
   margin-bottom: 4px
 
 
@@ -90,23 +97,22 @@ span.error
   label
     margin-right: 5px
 
-#story_attention, #album_attention, #lessons_attention
+.attention, .attention_comment
   margin:
     top: 5px
     bottom: 10px
-  font-size: 14px
   color: darkred
   clear: both
 
-#add_topic, #add_album, #add_lesson, #add_story
+.attention
+  font-size: 14px
+
+.add
   margin-top: 20px
   a
     font-family: Tahoma, Arial
     color: black
 
-#comment_table, #story_table
-  font-family: Tahoma, Arial
-  font-size: 17px
 
 span.speaker
   font-style: italic

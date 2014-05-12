@@ -1,10 +1,10 @@
 - @title = 'По теме'
 
-#about_differents
+.about
   |Добавляем разности и красивости, относящиеся к нашим любимым журавликам (рисунки, фотосессии и т.д.)
 - @topics.each do |topic|
   br
   = link_to topic.title, topic, class: :topic_link
 
-#add_topic
+.add
   = link_to 'Добавить раздел...', new_topic_path, class: :add

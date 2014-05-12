@@ -2,17 +2,12 @@
   = f.error_notification
 
   .form-inputs
-  #comment_table
-    .comment_row
-      = f.input :author, label.comment_cell: 'Имя гостя:'
-    br
-    .comment_row
-      = f.input :comment, label.comment_cell: 'Комментарий:'
-    br
-    br
-    = render partial: 'picture/uploader/show', locals: {picturable: new_comment}
+  .form_table
+    = f.input :author, label: 'Имя гостя:'
+    = f.input :comment, label: 'Комментарий:'
+  = render partial: 'picture/uploader/show', locals: {picturable: new_comment}
 
-  #attention_comment
+  .attention_comment
     |Дорогие посетители!
     br
     |Комментарии, содержащие мат, пошлость или рекламу, будут удалены!!!
@@ -20,6 +15,5 @@
     |с уважением,
     br
     |адиминистрация сайта
-  #buttons
-    .form-actions
-      = f.button :submit, 'Отправить'
+  .form-actions
+    = f.button :submit, 'Отправить'

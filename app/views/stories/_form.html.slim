@@ -3,15 +3,12 @@
 = simple_form_for @story, html: { class: :story, honeypot: true } do |f|
   = f.error_notification
 
-  #story_table
-    .field
-      = f.input :title, label: 'Название:'
-    .field
-      = f.input :author, label: 'Рассказчик:'
-    .field
-      = f.input :text, label: 'Ваша история:'
+  .form_table
+    = f.input :title, label: 'Название:'
+    = f.input :author, label: 'Рассказчик:'
+    = f.input :text, label: 'Ваша история:'
     = f.input_field :magic, as: :hidden, value: params[:magic] || false
-  #story_attention
+  .attention
     |Дорогие посетители!
     br
     |Статьи, содержащие мат, пошлость, рекламу или дубликат уже имеющихся данных, будут удалены!!!
