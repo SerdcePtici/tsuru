@@ -12,7 +12,7 @@ class AlbumsController < InheritedResources::Base
 
   def permitted_params
     if action_name == 'create'
-      params.permit album: [:title, files: [], pictures_attributes: [:file_cache, :file]]
+      params.permit album: [:title, :updatable, files: [], pictures_attributes: [:file_cache, :file]]
     else
       params.permit album: [files: [], pictures_attributes: [:file_cache, :file]]
     end

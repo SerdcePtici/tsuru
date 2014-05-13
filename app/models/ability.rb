@@ -13,7 +13,7 @@ class Ability
          can :create, Story
          can :create, Topic
          can :create, Album
-         can :update, Album
+         can :update, Album, updatable: true
          can :create, Lesson
          can :create, Comment
        end

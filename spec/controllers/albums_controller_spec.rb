@@ -77,26 +77,43 @@ describe AlbumsController do
   end
 
   describe 'PUT update' do
-    let!(:album) { create(:album, topic: topic) }
+    describe 'with updatable album' do
+      let!(:album) { create(:album, topic: topic) }
 
-    describe 'with valid params' do
-      let(:attributes_for_update) { {pictures_attributes: [attributes_for(:picture)]} }
+      describe 'with valid params' do
+        let(:attributes_for_update) { {pictures_attributes: [attributes_for(:picture)]} }
 
-      it 'updates the requested album' do
-        expect_any_instance_of(Album).to receive(:update_attributes).with(attributes_for_update).and_call_original
-        put :update, {id: album.to_param, album: attributes_for_update}, valid_session
-      end
+        it 'updates the requested album' do
+          expect_any_instance_of(Album).to receive(:update_attributes).with(attributes_for_update).and_call_original
+          put :update, {id: album.to_param, album: attributes_for_update}, valid_session
+        end
 
-      it 'assigns the requested album as @album' do
-        put :update, {id: album.to_param, album: attributes_for_update}, valid_session
-        expect(assigns(:album)).to eq(album)
-      end
+        it 'assigns the requested album as @album' do
+          put :update, {id: album.to_param, album: attributes_for_update}, valid_session
+          expect(assigns(:album)).to eq(album)
+        end
 
-      it 'redirects to the album' do
-        put :update, {id: album.to_param, album: attributes_for_update}, valid_session
-        expect(response).to redirect_to(album)
+        it 'redirects to the album' do
+          put :update, {id: album.to_param, album: attributes_for_update}, valid_session
+          expect(response).to redirect_to(album)
+        end
       end
     end
+
+    describe 'with not updatable album' do
+      let!(:album) { create(:album, topic: topic, updatable: false) }
+
+      describe 'with valid params' do
+        let(:attributes_for_update) { {pictures_attributes: [attributes_for(:picture)]} }
+
+        it 'forbids update this album' do
+          expect {
+            put :update, {id: album.to_param, album: attributes_for_update}, valid_session
+          }.to raise_error CanCan::AccessDenied
+        end
+      end
+    end
+
   end
 
   describe 'DELETE destroy' do

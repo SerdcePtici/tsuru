@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504141014) do
+ActiveRecord::Schema.define(version: 20140513180854) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
     t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "updatable",  default: true
   end
 
+  add_index "albums", ["title", "topic_id"], name: "index_albums_on_title_and_topic_id"
   add_index "albums", ["topic_id"], name: "index_albums_on_topic_id"
 
   create_table "comments", force: true do |t|
@@ -41,6 +43,8 @@ ActiveRecord::Schema.define(version: 20140504141014) do
     t.datetime "updated_at"
   end
 
+  add_index "lessons", ["title"], name: "index_lessons_on_title"
+
   create_table "pictures", force: true do |t|
     t.string   "file"
     t.integer  "position"
@@ -59,11 +63,15 @@ ActiveRecord::Schema.define(version: 20140504141014) do
     t.boolean  "magic",      default: false, null: false
   end
 
+  add_index "stories", ["title", "magic"], name: "index_stories_on_title_and_magic"
+
   create_table "topics", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "topics", ["title"], name: "index_topics_on_title"
 
   create_table "users", force: true do |t|
     t.string   "email",               default: "", null: false

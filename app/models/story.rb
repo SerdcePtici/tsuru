@@ -3,6 +3,7 @@ class Story < ActiveRecord::Base
   MAX_PICTURES_COUNT = 2
 
   validates :author, :title, :text, presence: true
+  validates_uniqueness_of :title, scope: :magic
   acts_as_commentable
 
   has_many :pictures, -> { order('position ASC') }, as: :picturable, dependent: :destroy
