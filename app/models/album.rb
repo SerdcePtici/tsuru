@@ -3,5 +3,6 @@ class Album < ActiveRecord::Base
 
   belongs_to :topic
   validates :topic, presence: true
+  validates_uniqueness_of :title, scope: :topic
 
 end
