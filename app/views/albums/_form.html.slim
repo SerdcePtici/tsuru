@@ -4,6 +4,7 @@
 
   .form-inputs
     = f.input :title, label: 'Название'
+    = f.input :updatable, label: 'Разрешить другим пользователям добавлять фотографии в этот альбом'
 
     = render partial: 'picture/uploader/show', locals: {picturable: @album}
 

@@ -8,11 +8,13 @@ feature 'Albums managment' do
     click_on topic.title
     click_on 'Создать альбом...'
     fill_in 'Название', with: 'Фотографии птичек'
+    check 'Разрешить другим пользователям добавлять фотографии в этот альбом'
     attach_file 'Добавить изображения', file_fixture_path('crane.jpg')
     expect(page).to have_selector '.uploaded_pictures img', count: 1
     click_on 'Создать альбом'
 
     expect(page).to have_text 'Фотографии птичек'
+    expect(page).to have_text 'Добавить изображения'
     expect(page).to have_selector '#content img', count: 1
   end
 

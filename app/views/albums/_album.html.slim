@@ -10,5 +10,5 @@
   .album-pictures
     - album.pictures.each do |picture|
       div.picture = image_tag picture.file
-
-  = render partial: 'picture/add_pictures_form', locals: {picturable: @album}
+  - if can? :update, album
+    = render partial: 'picture/add_pictures_form', locals: {picturable: @album}
