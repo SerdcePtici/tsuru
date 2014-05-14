@@ -25,7 +25,7 @@ feature 'Lessons managment' do
       click_on 'Как делать птичек'
       click_on 'Удалить'
 
-      current_path.should eq '/lessons'
+      expect(current_path).to eq '/lessons'
       expect(page).to_not have_text 'Как делать птичек'
     end
   end

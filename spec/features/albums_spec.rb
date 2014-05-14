@@ -45,7 +45,7 @@ feature 'Albums managment' do
         expect(page).to have_text 'Фотографии птичек'
         click_on 'Удалить'
 
-        current_path.should eq topic_path topic
+        expect(current_path).to eq topic_path topic
         expect(page).to_not have_text 'Фотографии птичек'
       end
     end

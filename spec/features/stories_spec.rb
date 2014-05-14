@@ -32,7 +32,7 @@ feature 'Stories managment' do
       click_on 'Птички'
       click_on 'Удалить'
 
-      current_path.should eq '/stories'
+      expect(current_path).to eq '/stories'
       expect(page).to_not have_text 'Птички'
     end
   end

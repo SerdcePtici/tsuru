@@ -33,7 +33,7 @@ feature 'Lesson comments', :js do
         click_on 'Удалить'
       end
 
-      current_path.should eq lesson_path lesson
+      expect(current_path).to eq lesson_path lesson
       expect(page).to_not have_text 'Маша'
     end
   end
@@ -67,7 +67,7 @@ feature 'Story comments' do
         click_on 'Удалить'
       end
 
-      current_path.should eq story_path story
+      expect(current_path).to eq story_path story
       expect(page).to_not have_text 'Маша'
     end
   end
@@ -101,7 +101,7 @@ feature 'Album comments' do
         click_on 'Удалить'
       end
 
-      current_path.should eq album_path album
+      expect(current_path).to eq album_path album
       expect(page).to_not have_text 'Маша'
     end
   end
