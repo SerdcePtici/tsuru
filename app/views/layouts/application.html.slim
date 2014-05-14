@@ -11,7 +11,9 @@ html
     #root
       #admin
         p#notice = notice
-        = render 'devise/logout'
+        - if user_signed_in?
+          #exit
+            = link_to 'Выйти', destroy_user_session_path, method: :delete
       - if content_for? :content
         = yield :content
       - else
