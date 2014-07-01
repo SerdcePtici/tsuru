@@ -1,11 +1,11 @@
 - content_for :content
   #main_wrap
-    #menu
-      = link_to 'НА ГЛАВНУЮ', root_path, id: :home
-      = menu_link_to 'ИСТОРИЯ', stories_path, id: :history
-      = menu_link_to 'УРОКИ', lessons_path, id: :lessons
-      = menu_link_to 'ПО ТЕМЕ', topics_path, id: :topic
-      = menu_link_to 'ВОЛШЕБСТВО', stories_path(magic: true), id: :magic
+    ul id="menu"
+      li = link_to 'НА ГЛАВНУЮ', root_path, id: :home
+      li = menu_link_to 'ИСТОРИЯ', stories_path, id: :history
+      li = menu_link_to 'УРОКИ', lessons_path, id: :lessons
+      li = menu_link_to 'ПО ТЕМЕ', topics_path, id: :topic
+      li = menu_link_to 'ВОЛШЕБСТВО', stories_path(magic: true), id: :magic
     #content
       = yield
       /#up
